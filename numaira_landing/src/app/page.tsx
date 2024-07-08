@@ -4,7 +4,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import LogoSVG from "./asset/logo.svg";
 import landingImage from "./asset/landing.png";
-export const Colors = {
+const Colors = {
   neutral: "#FFFFFF",
   neutral100: "#F6F6F6",
   neutral200: "#EDEDED",
