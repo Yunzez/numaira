@@ -32,8 +32,8 @@ const Colors = {
 const Header = styled.div`
   color: ${Colors.brand500};
   width: 600px;
-  font-size: 3.5vw;
-  font-weight: 700;
+  font-size: 3vw;
+  font-weight: 650;
   &:hover {
     color: #0066ff;
   }
@@ -42,17 +42,17 @@ const Header = styled.div`
 export default function Home() {
   return (
     <main
-      className="min-h-screen min-w-screen flex flex-col items-center justify-center text-center p-5"
-      style={{ overflow: "hidden" }}
+      className="min-h-screen min-w-screen flex flex-col items-center justify-start text-center p-5"
+      style={{ overflowY: "hidden" }}
     >
-      <div style={{ maxHeight: "500px", maxWidth: "600px" }} className="mt-10">
+      <div style={{ maxHeight: "350px", maxWidth: "600px" }}>
         <div className="flex justify-center">
           <LogoSVG width={80} height={80} />
         </div>
         <div className="mb-5 font-semibold" >Numaira</div>
 
         <Header>Automating Finance One File At A Time</Header>
-        <div style={{ color: Colors.brand1000 }} className="p-2">
+        <div style={{ color: Colors.brand1000, fontSize: '30px', fontWeight: '500'}} className="p-2">
           Launching in October 2024
         </div>
 
@@ -64,10 +64,32 @@ export default function Home() {
             justifyContent: "center",
           }}
         >
-          <div
-            className="flex justify-center mb-5"
+        </div>
+      </div>
+      <div style={{ display: "flex", justifyContent: "center", border: `${"1px bold " + Colors.brand500 }`, borderRadius: '8px', width: "80%"}}>
+        <Image
+          src={landingImage}
+          alt="Picture of the author"
+          className="pt-4"
+          style={{ width: "auto", maxHeight: "55vh !important"}} // ensures the image is responsive
+        />
+      </div>
+      <div style={{position: 'absolute', bottom: 0, left: 0}}>
+      <Footer/>
+      </div>
+     
+    </main>
+  );
+}
+
+
+const Footer = () => {
+  return (
+    <div className="flex justify-around items-center h-16" style={{width: '100vw', color: Colors.neutral700}}>
+      <a>© 2024 Numaira</a>
+      <div
+            className="flex justify-center items-center"
             style={{
-              color: Colors.neutral700,
               display: "flex",
               justifyContent: "center",
             }}
@@ -80,24 +102,11 @@ export default function Home() {
             >
               LinkedIn
             </a>
-            <div className="px-2 ">·</div>
+            <div className="px-2">·</div>
             <a href="mailto:numairaai@proton.me" className="px-1 underline">
               numairaai@proton.me
             </a>
           </div>
-        </div>
-      </div>
-      <div style={{ width: "70vw", display: "flex", justifyContent: "center" }}>
-        <Image
-          src={landingImage}
-          layout="responsive"
-          width={700} // arbitrary values for maintaining aspect ratio
-          height={700} // arbitrary values for maintaining aspect ratio
-          alt="Picture of the author"
-          className="pt-4"
-          style={{ width: "100%", height: "auto", border: `${"1px bold " + Colors.brand500 }`, borderRadius: '8px' }} // ensures the image is responsive
-        />
-      </div>
-    </main>
+    </div>
   );
 }
