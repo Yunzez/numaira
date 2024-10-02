@@ -25,10 +25,7 @@ export default function Home() {
     >
       
       <div style={{ maxHeight: "350px", maxWidth: "600px" }}>
-        <div className="flex justify-center">
-          <LogoSVG width={80} height={80} />
-        </div>
-        <div className="mb-5 font-semibold" >Numaira</div>
+        <div className="mb-5 font-semibold" >Introducing Numaira</div>
 
         <Header>Automating Finance One File At A Time</Header>
         <div style={{ color: Colors.brand1000, fontSize: '30px', fontWeight: '500'}} className="p-2">

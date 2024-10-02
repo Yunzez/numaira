@@ -1,5 +1,5 @@
 'use client'
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
 // Define the types for the context value
 interface GlobalContextType {
@@ -16,6 +16,11 @@ export const useGlobalContext = () => {
   if (!context) {
     throw new Error('useGlobalContext must be used within a GlobalProvider');
   }
+
+  useEffect(() => {
+    // any async or dynamic context loading
+  }, []);
+  
   return context;
 };
 

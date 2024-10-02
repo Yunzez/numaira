@@ -1,7 +1,8 @@
-'use client'
+"use client";
 import React, { ReactNode } from "react";
 import TopNav from "./components/topNav";
 import Footer from "./components/footer";
+import { GlobalProvider } from "./context/GlobalProviders";
 
 interface CustomLayoutProps {
   children: ReactNode;
@@ -10,15 +11,16 @@ interface CustomLayoutProps {
 const CustomLayout: React.FC<CustomLayoutProps> = ({ children }) => {
   return (
     <main
-      className="min-h-screen min-w-screen flex flex-col items-center justify-start text-center p-5"
+      className="min-h-screen min-w-screen flex flex-col items-center justify-start text-center"
       style={{ overflowY: "hidden" }}
     >
-      <div>
-        <TopNav />
-        {children}
-        <Footer />
-      </div>
-     
+      <GlobalProvider>
+        <div>
+          <TopNav />
+          {children}
+          <Footer />
+        </div>
+      </GlobalProvider>
     </main>
   );
 };
