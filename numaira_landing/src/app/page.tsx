@@ -42,6 +42,7 @@ export default function Home() {
         </div>
         <Image src={landingImage} alt="Landing Image" />
       </div>
+      
 
       
   
