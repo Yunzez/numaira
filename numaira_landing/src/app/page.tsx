@@ -20,8 +20,7 @@ const Header = styled.div`
 export default function Home() {
   return (
     <main
-      className="min-h-screen min-w-screen flex flex-col items-center justify-start text-center p-5"
-      style={{ overflowY: "hidden" }}
+      className=" flex flex-col items-center justify-start text-center p-5"
     >
       
       <div style={{ maxHeight: "350px", maxWidth: "600px" }}>
@@ -50,8 +49,7 @@ export default function Home() {
           style={{ width: "auto", maxHeight: "55vh !important"}} // ensures the image is responsive
         />
       </div>
-      <div style={{position: 'absolute', bottom: 0, left: 0}}>
-      </div>
+
      
     </main>
   );
