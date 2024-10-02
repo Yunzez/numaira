@@ -27,7 +27,7 @@ export default function Home() {
         <div className="mb-5 font-semibold mt-5" >Introducing Numaira</div>
 
         <Header>Automate data entry for financial documents in 1-click</Header>
-        <div style={{ color: Colors.brand1000, fontSize: '30px', fontWeight: '500'}} className="p-2">
+        <div style={{ color: Colors.brand1000, fontSize: '15px', fontWeight: '500'}} className="p-2">
           Launching in October 2024
         </div>
 
@@ -42,6 +42,8 @@ export default function Home() {
         </div>
         <Image src={landingImage} alt="Landing Image" />
       </div>
+
+      
   
      
     </div>
