@@ -29,10 +29,10 @@ const TopNav: React.FC = () => {
   const pathname = usePathname();
 
   return (
-    <div>
+    <div >
       <UpdateBanner message="🚀 Numaira Version 1.0 Launches In October 2024" />
       <div
-        className="flex justify-between gap-5 px-5 items-center"
+        className="flex justify-between gap-5 px-10 items-center"
         style={{ width: "100%" }}
       >
         <div>
