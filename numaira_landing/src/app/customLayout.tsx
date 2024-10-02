@@ -10,14 +10,11 @@ interface CustomLayoutProps {
 
 const CustomLayout: React.FC<CustomLayoutProps> = ({ children }) => {
   return (
-    <main
-      className="min-h-screen min-w-screen flex flex-col items-center justify-start text-center"
-      style={{ overflowY: "scroll" }}
-    >
+    <main className="min-h-screen min-w-screen flex flex-col items-center justify-start text-center min-h-screen">
       <GlobalProvider>
-        <div>
+        <div style={{ width: "100%" }} className="overflow-y-scroll">
           <TopNav />
-          {children}
+          <div className="flex-grow" style={{marginTop:"8vh"}}>{children}</div>
           <Footer />
         </div>
       </GlobalProvider>

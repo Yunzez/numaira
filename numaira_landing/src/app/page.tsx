@@ -9,8 +9,8 @@ import Footer from "./components/footer";
 import TopNav from "./components/topNav";
 const Header = styled.div`
   color: ${Colors.brand500};
-  width: 600px;
-  font-size: 3vw;
+  maxWidth: 600px;
+  font-size: 2em;
   font-weight: 650;
   &:hover {
     color: #0066ff;
@@ -19,14 +19,14 @@ const Header = styled.div`
 
 export default function Home() {
   return (
-    <main
-      className=" flex flex-col items-center justify-start text-center p-5"
+    <div
+      className=" flex flex-col items-center justify-start text-center w-100 h-screen"
     >
       
       <div style={{ maxHeight: "350px", maxWidth: "600px" }}>
-        <div className="mb-5 font-semibold" >Introducing Numaira</div>
+        <div className="mb-5 font-semibold mt-5" >Introducing Numaira</div>
 
-        <Header>Automating Finance One File At A Time</Header>
+        <Header>Automate data entry for financial documents in 1-click</Header>
         <div style={{ color: Colors.brand1000, fontSize: '30px', fontWeight: '500'}} className="p-2">
           Launching in October 2024
         </div>
@@ -40,18 +40,11 @@ export default function Home() {
           }}
         >
         </div>
+        <Image src={landingImage} alt="Landing Image" />
       </div>
-      <div style={{ display: "flex", justifyContent: "center", border: `${"1px bold " + Colors.brand500 }`, borderRadius: '8px', width: "80%"}}>
-        <Image
-          src={landingImage}
-          alt="Picture of the author"
-          className="pt-4"
-          style={{ width: "auto", maxHeight: "55vh !important"}} // ensures the image is responsive
-        />
-      </div>
-
+  
      
-    </main>
+    </div>
   );
 }
 

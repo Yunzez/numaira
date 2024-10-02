@@ -13,6 +13,7 @@ const UpdateBanner = ({ message }: { message: string }) => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        fontSize: "0.5rem",
       }}
     >
       {message}

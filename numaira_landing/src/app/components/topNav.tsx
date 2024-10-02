@@ -7,24 +7,7 @@ import LogoSVG from "../asset/logo.svg";
 import MenuSVG from "../asset/menu.svg";
 import CloseSVG from "../asset/close.svg";
 import { useState } from "react";
-
-// Styled Button
-export const StyledButton = styled.button`
-  background: linear-gradient(${Colors.brand200}, ${Colors.brand500});
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  border: none;
-  font-size: 1rem;
-  font-weight: 500;
-  transition: background 0.5s, transform 0.3s;
-
-  &:hover {
-    background: linear-gradient(${Colors.brand500}, ${Colors.brand800});
-    transform: scale(1.05);
-  }
-`;
+import { StyledButton } from "./styled/StyledButton";
 
 // Styled full-screen mobile menu
 const MobileMenu = styled.div<{ menuOpen: boolean }>`
@@ -51,7 +34,7 @@ const TopNav: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div style={{ height: "8vh" }}>
+    <div style={{ height: "8vh", width: "100%" }} className="fixed top-0">
       {/* Desktop Navigation */}
       <section className="hidden md:block">
         <UpdateBanner message="🚀 Numaira Version 1.0 Launches In October 2024" />
@@ -132,12 +115,14 @@ const TopNav: React.FC = () => {
             </div>
           </div>
           {/* Menu/Close Button */}
-          <div className="relative flex items-center justify-center w-10 h-10">
+          <div
+            className="relative flex items-center justify-center w-10 h-10"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
             <MenuSVG
               width={40}
               height={40}
               fill={Colors.brand500}
-              onClick={() => setMenuOpen(true)}
               className={`cursor-pointer absolute transition-all duration-500 ${
                 menuOpen ? "opacity-0 scale-50" : "opacity-100 scale-100"
               }`}
@@ -147,7 +132,6 @@ const TopNav: React.FC = () => {
               width={40}
               height={40}
               fill={Colors.brand500}
-              onClick={() => setMenuOpen(false)}
               className={`cursor-pointer absolute transition-all duration-500 ${
                 menuOpen ? "opacity-100 scale-100" : "opacity-0 scale-50"
               }`}
