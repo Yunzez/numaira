@@ -1,10 +1,19 @@
 "use client";
 import React from "react";
 import { Colors } from "../colors";
+import styled from "styled-components";
+
+const FooterBoldedFont = styled.div`
+    font-weight: bold;
+    text-decoration: underline;
+`
 const Footer = () => {
   return (
     <div>
         {/* your code goes here qiming  */}
+        <FooterBoldedFont>
+            <h1>© 2024 Numaira</h1>
+        </FooterBoldedFont>
       <div
         className="flex justify-around items-center h-16 "
         style={{
