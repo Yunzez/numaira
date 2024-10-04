@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Colors } from "../../colors";
+
 export const StyledButton = styled.button`
   background: linear-gradient(${Colors.brand200}, ${Colors.brand500});
   color: white;

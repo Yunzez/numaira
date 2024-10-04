@@ -2,6 +2,7 @@
 import { useRouter, usePathname } from "next/navigation";
 import styled from "styled-components";
 import Colors from "../colors";
+import formats from "../formats";
 import UpdateBanner from "./UpdateBanner";
 import LogoSVG from "../asset/logo.svg";
 import MenuSVG from "../asset/menu.svg";
@@ -44,7 +45,10 @@ const TopNav: React.FC = () => {
         >
           <div className="flex justify-center gap-2 items-center">
             <LogoSVG width={40} height={40} fill={Colors.brand500} />
-            <div className="font-bold" style={{ color: Colors.brand500 }}>
+            <div
+              className="font-bold"
+              style={{ color: Colors.brand500, fontSize: formats.textXL }}
+            >
               Numaira
             </div>
           </div>
