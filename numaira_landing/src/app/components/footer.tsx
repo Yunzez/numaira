@@ -13,6 +13,7 @@ const FooterBoldedFont = styled.div`
   font-weight: 600;
   color: ${Colors.neutral1000};
   text-align: left;
+  cursor: pointer;
 `;
 
 const FooterLessBolderFont = styled.div`
@@ -38,10 +39,10 @@ const Footer = () => {
       {/* Desktop Navigation */}
       <section className="hidden sm:block">
         <div className="flex flex-col gap-16">
-          <div className="flex justify-center items-center gap-20 h-[320px]">
+          <div className="flex justify-between items-center gap-20 h-[320px] px-10">
             <div
               className="flex flex-col items-start"
-              style={{ width: "800px" }}
+              style={{ maxWidth: "800px" }}
             >
               <div
                 className="flex flex-col justify-start items-start"
@@ -161,7 +162,7 @@ const Footer = () => {
           <div className="flex flex-col justify-center items-start gap-20 px-6">
             <div
               className="flex flex-col items-start"
-              style={{ width: "800px" }}
+              style={{ width: "auto" }}
             >
               <div
                 className="flex flex-col justify-start items-start"
