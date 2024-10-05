@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Colors } from "../colors";
-import { formats } from "../formats";
+import { Formats } from "../formats";
 import styled from "styled-components";
 import LogoSVG from "../asset/logo.svg";
 import LinkedInSVG from "../asset/linkedin.svg";
@@ -55,7 +55,7 @@ const Footer = () => {
                       className="font-bold"
                       style={{
                         color: Colors.brand500,
-                        fontSize: formats.textXL,
+                        fontSize: Formats.textXL,
                       }}
                     >
                       Numaira
@@ -66,7 +66,7 @@ const Footer = () => {
                     style={{
                       color: Colors.neutral700,
                       fontWeight: 500,
-                      fontSize: formats.textXS,
+                      fontSize: Formats.textXS,
                     }}
                   >
                     Automating finance one file at a time
@@ -118,7 +118,7 @@ const Footer = () => {
               backgroundColor: Colors.neutral100,
             }}
           >
-            <a style={{ fontSize: formats.textLG, fontWeight: 400 }}>
+            <a style={{ fontSize: Formats.textLG, fontWeight: 400 }}>
               © 2024 Numaira. All rights are reserved
             </a>
             <div
@@ -176,7 +176,7 @@ const Footer = () => {
                       className="font-bold"
                       style={{
                         color: Colors.brand500,
-                        fontSize: formats.textXL,
+                        fontSize: Formats.textXL,
                       }}
                     >
                       Numaira
@@ -187,7 +187,7 @@ const Footer = () => {
                     style={{
                       color: Colors.neutral700,
                       fontWeight: 500,
-                      fontSize: formats.textXS,
+                      fontSize: Formats.textXS,
                     }}
                   >
                     Automating finance one file at a time
@@ -284,7 +284,7 @@ const Footer = () => {
             </div>
             <a
               className="mb-3"
-              style={{ fontSize: formats.textLG, fontWeight: 400 }}
+              style={{ fontSize: Formats.textLG, fontWeight: 400 }}
             >
               © 2024 Numaira. All rights are reserved
             </a>
