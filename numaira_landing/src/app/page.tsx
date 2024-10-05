@@ -9,7 +9,7 @@ import Footer from "./components/footer";
 import TopNav from "./components/topNav";
 const Header = styled.div`
   color: ${Colors.brand500};
-  maxWidth: 600px;
+  maxwidth: 600px;
   font-size: 2em;
   font-weight: 650;
   &:hover {
@@ -19,15 +19,19 @@ const Header = styled.div`
 
 export default function Home() {
   return (
-    <div
-      className=" flex flex-col items-center justify-start text-center w-100 h-screen"
-    >
-      
+    <div className=" flex flex-col items-center justify-start text-center w-100 h-screen">
       <div style={{ maxHeight: "350px", maxWidth: "600px" }}>
-        <div className="mb-5 font-semibold mt-5" >Introducing Numaira</div>
+        <div className="mb-5 font-semibold mt-5">Introducing Numaira</div>
 
         <Header>Automate data entry for financial documents in 1-click</Header>
-        <div style={{ color: Colors.brand1000, fontSize: '15px', fontWeight: '500'}} className="p-2">
+        <div
+          style={{
+            color: Colors.brand1000,
+            fontSize: "15px",
+            fontWeight: "500",
+          }}
+          className="p-2"
+        >
           Launching in October 2024
         </div>
 
@@ -38,18 +42,9 @@ export default function Home() {
             display: "flex",
             justifyContent: "center",
           }}
-        >
-        </div>
+        ></div>
         <Image src={landingImage} alt="Landing Image" />
       </div>
-      
-
-      
-  
-     
     </div>
   );
 }
-
-
-
