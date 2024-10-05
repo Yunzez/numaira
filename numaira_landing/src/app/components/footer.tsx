@@ -128,6 +128,7 @@ const Footer = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 gap: 20,
+                maxHeight: "40px",
               }}
             >
               <a
@@ -214,7 +215,7 @@ const Footer = () => {
             >
               <FooterCoreLayout style={{ gridColumn: "1", gridRow: 1 }}>
                 <FooterLessBolderFont>
-                  <h5>product</h5>
+                  <h5>Product</h5>
                 </FooterLessBolderFont>
                 <FooterBoldedFont>Features</FooterBoldedFont>
                 <FooterBoldedFont>Use Cases</FooterBoldedFont>
@@ -223,7 +224,7 @@ const Footer = () => {
               </FooterCoreLayout>
               <FooterCoreLayout style={{ gridColumn: "2", gridRow: 1 }}>
                 <FooterLessBolderFont>
-                  <h5>company</h5>
+                  <h5>Company</h5>
                 </FooterLessBolderFont>
                 <FooterBoldedFont>About</FooterBoldedFont>
                 <FooterBoldedFont>Contact</FooterBoldedFont>
@@ -243,17 +244,19 @@ const Footer = () => {
             className="flex flex-col items-start px-6"
             style={{
               width: "auto",
+              height: "auto",
               color: Colors.neutral700,
               backgroundColor: Colors.neutral100,
             }}
           >
             <div
-              className="flex justify-center items-center h-[80px] "
+              className="flex justify-center items-center"
               style={{
                 display: "flex",
                 justifyContent: "left",
                 alignItems: "center",
                 gap: 20,
+                maxHeight: "80px",
               }}
             >
               <a
