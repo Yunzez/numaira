@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { useGlobalContext, GlobalProvider } from "./context/GlobalProviders";
-import TopNav from "./components/topNav";
 import CustomLayout from "./customLayout";
 import Head from "next/head"; // Import Head component
 
