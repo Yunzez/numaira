@@ -1,14 +1,18 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Colors from "@/app/colors";
 import Formats from "@/app/formats";
 import styled from "styled-components";
+import PhoneNumberInput from "@/app/components/phoneNumberInput";
+import { StyledButton } from "@/app/components/styled/StyledButton";
+import RocketSVG from "@/app/asset/rocket.svg";
 const page = () => {
+  const [requestSent, setRequestSent] = useState(false);
   return (
-    <div className="flex justify-start">
+    <div className="md:flex justify-start mt-10">
       <section
-        style={{ maxWidth: "50%", textAlign: "left", paddingRight: "10%", paddingLeft:"5%" }}
-        className="p-5 flex flex-col gap-4"
+        style={{ textAlign: "left" }}
+        className="p-5 flex flex-col gap-4 md:ps-5 md:pe-20 flex-grow md:w-1/2"
       >
         <div
           style={{
@@ -60,66 +64,133 @@ const page = () => {
                                     schedule your demo."
         />
       </section>
-      <section style={{ maxWidth: "50%" }} className="p-5">
-        <ContactCard className="p-12">
-          <div className="flex flex-col justify-around gap-4">
-            <div>
-              <div style={{ textAlign: "left" }} className="ps-2">
-                First Name
+      <section className="p-5 flex-grow md:w-1/2">
+        <ContactCard className="p-12" style={{ minHeight: "50vh" }}>
+          {requestSent ? (
+            <div className="flex flex-col justify-center" style={{ minHeight: "50vh" }}>
+              <div className="flex justify-center" >
+                <RocketSVG />
               </div>
-              <CustomInputBox
-                type="text"
-                id="firstName"
-                style={{ width: "100%" }}
-              />
-            </div>
-            <div>
-              <div style={{ textAlign: "left" }} className="ps-2">
-                Last Name
+              <div style={{ fontSize: Formats.displaySM, color: Colors.brand500 }} className="py-5 font-bold">
+                Your request is sent!
               </div>
-              <CustomInputBox
-                type="text"
-                id="lastName"
-                style={{ width: "100%" }}
-              />
-            </div>
-            <div>
-              <div style={{ textAlign: "left" }} className="ps-2">
-                Email
-              </div>
-              <CustomInputBox
-                type="email"
-                id="email"
-                style={{ width: "100%" }}
-              />
-            </div>
-            <div>
-              <div style={{ textAlign: "left" }} className="ps-2">
-                Phone Number
-              </div>
-              <CustomInputBox
-                type="tel"
-                id="phoneNumber"
-                style={{ width: "100%" }}
-              />
-            </div>
-            <div className="flex justify-start " style={{ textAlign: "left" }}>
-              <CustomInputBox
-                type="checkbox"
-                id="productUpdates"
-                style={{ maxWidth: "20px" }}
-              />
-              <div>
-                Yes, I’d like to receive product updates regarding Numaira. (You
-                can opt out any time). View our privacy policy.
+              <div style={{ fontSize: Formats.textSM }}>
+                A Numaira team member will be reaching out to you within 24
+                hours.
               </div>
             </div>
-          </div>
+          ) : (
+            <>
+              <div className="flex flex-col justify-around gap-4">
+                <div>
+                  <div style={{ textAlign: "left" }} className="ps-2">
+                    First Name
+                  </div>
+                  <CustomInputBox
+                    type="text"
+                    id="firstName"
+                    style={{ width: "100%" }}
+                  />
+                </div>
+                <div>
+                  <div style={{ textAlign: "left" }} className="ps-2">
+                    Last Name
+                  </div>
+                  <CustomInputBox
+                    type="text"
+                    id="lastName"
+                    style={{ width: "100%" }}
+                  />
+                </div>
+                <div>
+                  <div style={{ textAlign: "left" }} className="ps-2">
+                    Email
+                  </div>
+                  <CustomInputBox
+                    type="email"
+                    id="email"
+                    style={{ width: "100%" }}
+                  />
+                </div>
+                <div>
+                  <div style={{ textAlign: "left" }} className="ps-2">
+                    Phone Number
+                  </div>
+                  <div className="flex">
+                    <PhoneNumberInput />
+                    <CustomInputBox
+                      type="tel"
+                      id="phoneNumber"
+                      style={{ width: "100%" }}
+                    />
+                  </div>
+                </div>
+                <div
+                  className="flex justify-start "
+                  style={{ textAlign: "left" }}
+                >
+                  <CheckboxContainer htmlFor={"productUpdates"}>
+                    <HiddenCheckbox id={"productUpdates"} />
+                    <CustomCheckbox />
+                  </CheckboxContainer>
+
+                  <div>
+                    Yes, I’d like to receive product updates regarding Numaira.
+                    (You can opt out any time). View our privacy policy.
+                  </div>
+                </div>
+              </div>
+              <StyledButton
+                onClick={() => {
+                  console.log("Request A Demo");
+                  setRequestSent(true);
+                }}
+              >
+                Request A Demo
+              </StyledButton>
+            </>
+          )}
         </ContactCard>
       </section>
     </div>
   );
 };
+
+const CheckboxContainer = styled.label`
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 30px; /* Spacing for the custom checkbox */
+  font-size: 16px;
+  user-select: none;
+`;
+
+const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+`;
+
+const CustomCheckbox = styled.span`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: ${Colors.neutral};
+  border-radius: ${Formats.roundmd};
+  border: 1.5px solid ${Colors.neutral1000};
+
+  /* When the checkbox is checked, apply different styles */
+  ${HiddenCheckbox}:checked + & {
+    background-color: ${Colors.brand500};
+    border-color: ${Colors.brand200};
+  }
+`;
+
+const CheckboxLabel = styled.span`
+  margin-left: 8px; /* Adjust if needed */
+`;
 
 const DesTextBlock = ({ text }: { text: string }) => {
   return (
@@ -139,16 +210,18 @@ const ContactCard = styled.div`
   background: ${Colors.neutral};
   color: ${Colors.neutral1000};
   border: 1px solid ${Colors.neutral200};
-  box-shadow: 0 12px 10px ${Colors.neutral200}, 0 10px 6px ${Colors.neutral200};
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.08);
+  
   border-radius: ${Formats.roundmd};
   margin: 10px;
 `;
+
 
 const CustomInputBox = styled.input`
   width: 100%;
   padding: 10px;
   border-radius: ${Formats.roundmd};
-  border: 1.2px solid ${Colors.neutral300};
+  border: 1.5px solid ${Colors.neutral300};
   margin: 5px;
 `;
 
