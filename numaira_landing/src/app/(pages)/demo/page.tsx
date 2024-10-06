@@ -8,6 +8,15 @@ import { StyledButton } from "@/app/components/styled/StyledButton";
 import RocketSVG from "@/app/asset/rocket.svg";
 const page = () => {
   const [requestSent, setRequestSent] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [error, setError] = useState(false);
+  const isValidResponse = () => {
+    return firstName && lastName && email && phoneNumber;
+  };
+
   return (
     <div className="md:flex justify-start mt-10">
       <section
@@ -65,13 +74,22 @@ const page = () => {
         />
       </section>
       <section className="p-5 flex-grow md:w-1/2">
+        {error && (
+          <div className="text-red-500 p-5">Please fill out all fields</div>
+        )}
         <ContactCard className="p-12" style={{ minHeight: "50vh" }}>
           {requestSent ? (
-            <div className="flex flex-col justify-center" style={{ minHeight: "50vh" }}>
-              <div className="flex justify-center" >
+            <div
+              className="flex flex-col justify-center"
+              style={{ minHeight: "50vh" }}
+            >
+              <div className="flex justify-center">
                 <RocketSVG />
               </div>
-              <div style={{ fontSize: Formats.displaySM, color: Colors.brand500 }} className="py-5 font-bold">
+              <div
+                style={{ fontSize: Formats.displaySM, color: Colors.brand500 }}
+                className="py-5 font-bold"
+              >
                 Your request is sent!
               </div>
               <div style={{ fontSize: Formats.textSM }}>
@@ -90,6 +108,7 @@ const page = () => {
                     type="text"
                     id="firstName"
                     style={{ width: "100%" }}
+                    onChange={(e) => setFirstName(e.target.value)}
                   />
                 </div>
                 <div>
@@ -100,6 +119,7 @@ const page = () => {
                     type="text"
                     id="lastName"
                     style={{ width: "100%" }}
+                    onChange={(e) => setLastName(e.target.value)}
                   />
                 </div>
                 <div>
@@ -110,6 +130,7 @@ const page = () => {
                     type="email"
                     id="email"
                     style={{ width: "100%" }}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
                 <div>
@@ -122,6 +143,7 @@ const page = () => {
                       type="tel"
                       id="phoneNumber"
                       style={{ width: "100%" }}
+                      onChange={(e) => setPhoneNumber(e.target.value)}
                     />
                   </div>
                 </div>
@@ -143,7 +165,11 @@ const page = () => {
               <StyledButton
                 onClick={() => {
                   console.log("Request A Demo");
-                  setRequestSent(true);
+                  if (isValidResponse()) {
+                    setRequestSent(true);
+                  } else {
+                    setError(true);
+                  }
                 }}
               >
                 Request A Demo
@@ -211,11 +237,10 @@ const ContactCard = styled.div`
   color: ${Colors.neutral1000};
   border: 1px solid ${Colors.neutral200};
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.08);
-  
+
   border-radius: ${Formats.roundmd};
   margin: 10px;
 `;
-
 
 const CustomInputBox = styled.input`
   width: 100%;
