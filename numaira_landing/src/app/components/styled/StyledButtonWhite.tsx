@@ -16,7 +16,6 @@ export const StyledButtonWhite = styled.button`
   &:hover {
     background: ${Colors.neutral};
     color: ${Colors.brand200_dark};
-    // color: pink;
     padding: 0.5rem 1rem;
     border-radius: 8px;
     cursor: pointer;
