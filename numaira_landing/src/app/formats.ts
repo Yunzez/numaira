@@ -1,4 +1,4 @@
-export const formats = {
+export const Formats = {
   roundsm: "4px",
   roundmd: "8px",
   roundlg: "12px",
@@ -14,4 +14,4 @@ export const formats = {
   textXS: "0.75rem",
 };
 
-export default formats;
+export default Formats;

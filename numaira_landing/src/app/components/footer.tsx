@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Colors } from "../colors";
-import { formats } from "../formats";
+import { Formats } from "../formats";
 import styled from "styled-components";
 import LogoSVG from "../asset/logo.svg";
 import LinkedInSVG from "../asset/linkedin.svg";
@@ -13,6 +13,7 @@ const FooterBoldedFont = styled.div`
   font-weight: 600;
   color: ${Colors.neutral1000};
   text-align: left;
+  cursor: pointer;
 `;
 
 const FooterLessBolderFont = styled.div`
@@ -38,10 +39,10 @@ const Footer = () => {
       {/* Desktop Navigation */}
       <section className="hidden sm:block">
         <div className="flex flex-col gap-16">
-          <div className="flex justify-center items-center gap-20 h-[320px]">
+          <div className="flex justify-between items-center gap-20 h-[320px] px-10">
             <div
               className="flex flex-col items-start"
-              style={{ width: "800px" }}
+              style={{ maxWidth: "800px" }}
             >
               <div
                 className="flex flex-col justify-start items-start"
@@ -54,7 +55,7 @@ const Footer = () => {
                       className="font-bold"
                       style={{
                         color: Colors.brand500,
-                        fontSize: formats.textXL,
+                        fontSize: Formats.textXL,
                       }}
                     >
                       Numaira
@@ -65,7 +66,7 @@ const Footer = () => {
                     style={{
                       color: Colors.neutral700,
                       fontWeight: 500,
-                      fontSize: formats.textXS,
+                      fontSize: Formats.textXS,
                     }}
                   >
                     Automating finance one file at a time
@@ -117,7 +118,7 @@ const Footer = () => {
               backgroundColor: Colors.neutral100,
             }}
           >
-            <a style={{ fontSize: formats.textLG, fontWeight: 400 }}>
+            <a style={{ fontSize: Formats.textLG, fontWeight: 400 }}>
               © 2024 Numaira. All rights are reserved
             </a>
             <div
@@ -127,6 +128,7 @@ const Footer = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 gap: 20,
+                maxHeight: "40px",
               }}
             >
               <a
@@ -161,7 +163,7 @@ const Footer = () => {
           <div className="flex flex-col justify-center items-start gap-20 px-6">
             <div
               className="flex flex-col items-start"
-              style={{ width: "800px" }}
+              style={{ width: "auto" }}
             >
               <div
                 className="flex flex-col justify-start items-start"
@@ -174,7 +176,7 @@ const Footer = () => {
                       className="font-bold"
                       style={{
                         color: Colors.brand500,
-                        fontSize: formats.textXL,
+                        fontSize: Formats.textXL,
                       }}
                     >
                       Numaira
@@ -185,7 +187,7 @@ const Footer = () => {
                     style={{
                       color: Colors.neutral700,
                       fontWeight: 500,
-                      fontSize: formats.textXS,
+                      fontSize: Formats.textXS,
                     }}
                   >
                     Automating finance one file at a time
@@ -213,7 +215,7 @@ const Footer = () => {
             >
               <FooterCoreLayout style={{ gridColumn: "1", gridRow: 1 }}>
                 <FooterLessBolderFont>
-                  <h5>product</h5>
+                  <h5>Product</h5>
                 </FooterLessBolderFont>
                 <FooterBoldedFont>Features</FooterBoldedFont>
                 <FooterBoldedFont>Use Cases</FooterBoldedFont>
@@ -222,7 +224,7 @@ const Footer = () => {
               </FooterCoreLayout>
               <FooterCoreLayout style={{ gridColumn: "2", gridRow: 1 }}>
                 <FooterLessBolderFont>
-                  <h5>company</h5>
+                  <h5>Company</h5>
                 </FooterLessBolderFont>
                 <FooterBoldedFont>About</FooterBoldedFont>
                 <FooterBoldedFont>Contact</FooterBoldedFont>
@@ -242,17 +244,19 @@ const Footer = () => {
             className="flex flex-col items-start px-6"
             style={{
               width: "auto",
+              height: "auto",
               color: Colors.neutral700,
               backgroundColor: Colors.neutral100,
             }}
           >
             <div
-              className="flex justify-center items-center h-[80px] "
+              className="flex justify-center items-center"
               style={{
                 display: "flex",
                 justifyContent: "left",
                 alignItems: "center",
                 gap: 20,
+                maxHeight: "80px",
               }}
             >
               <a
@@ -280,7 +284,7 @@ const Footer = () => {
             </div>
             <a
               className="mb-3"
-              style={{ fontSize: formats.textLG, fontWeight: 400 }}
+              style={{ fontSize: Formats.textLG, fontWeight: 400 }}
             >
               © 2024 Numaira. All rights are reserved
             </a>

@@ -12,7 +12,7 @@ const CustomLayout: React.FC<CustomLayoutProps> = ({ children }) => {
   return (
     <main className="min-h-screen min-w-screen flex flex-col items-center justify-start text-center min-h-screen">
       <GlobalProvider>
-        <div style={{ width: "100%" }} className="overflow-y-scroll">
+        <div style={{ width: "100%" }}>
           <TopNav />
           <div className="flex-grow" style={{ marginTop: "10vh" }}>
             {children}

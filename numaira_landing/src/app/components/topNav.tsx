@@ -7,7 +7,7 @@ import UpdateBanner from "./UpdateBanner";
 import LogoSVG from "../asset/logo.svg";
 import MenuSVG from "../asset/menu.svg";
 import CloseSVG from "../asset/close.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { StyledButton } from "./styled/StyledButton";
 
 // Styled full-screen mobile menu
@@ -28,14 +28,34 @@ const MobileMenu = styled.div<{ menuOpen: boolean }>`
     menuOpen ? "translateX(0)" : "translateX(100%)"};
 `;
 
-// Main component
+// Blurry Navbar
+const Navbar = styled.div`
+  height: 8vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Optional border */
+`;
+
 const TopNav: React.FC = () => {
   const router = useRouter();
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Check if the component has mounted
+  useEffect(() => {
+    setIsMounted(true); // Once mounted, set isMounted to true
+  }, []);
+
+  if (!isMounted) return null; // Don't render anything until hydration
 
   return (
-    <div style={{ height: "8vh", width: "100%" }} className="fixed top-0">
+    <Navbar>
       {/* Desktop Navigation */}
       <section className="hidden md:block">
         <UpdateBanner message="🚀 Numaira Version 1.0 Launches In October 2024" />
@@ -99,8 +119,8 @@ const TopNav: React.FC = () => {
             </div>
             <div>
               <StyledButton
-                onClick={() => router.push("/dashboard")}
-                className={pathname === "/contact" ? "active" : ""}
+                onClick={() => router.push("/demo")}
+                className={pathname === "/demo" ? "active" : ""}
               >
                 Request a Demo
               </StyledButton>
@@ -196,7 +216,7 @@ const TopNav: React.FC = () => {
           </div>
         </MobileMenu>
       </section>
-    </div>
+    </Navbar>
   );
 };
 
