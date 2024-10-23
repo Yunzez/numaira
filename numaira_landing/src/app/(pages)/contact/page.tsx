@@ -45,9 +45,6 @@ const page = () => {
   };
 
   const setItemSelected = (key, index) => {
-    // console.log(
-    //   `key is ${key}, index is ${index}, timeZone[key] is ${timeZone[key][index]}`
-    // );
     Object.keys(timeZone).map((item) => {
       timeZone[item][index] = item === key ? true : false;
     });
