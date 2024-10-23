@@ -6,7 +6,7 @@ import LogoSVG from "./asset/logo.svg";
 import landingImage from "./asset/landing.png";
 import Colors from "./colors";
 import Footer from "./components/footer";
-import TopNav from "./components/topNav";
+
 const Header = styled.div`
   color: ${Colors.brand500};
   maxwidth: 600px;
