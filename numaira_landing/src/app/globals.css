@@ -32,3 +32,23 @@ body {
 @layer utilities {
   
 }
+
+@font-face {
+  font-family: 'Lora';
+  src: url('/fonts/Lora//Lora-Variable.ttf') format('truetype');
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lora';
+  src: url('/fonts/Lora/Lora-VariableItalic.ttf') format('truetype');
+  font-weight: 300 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+html{
+  font-family: 'Lora';
+}

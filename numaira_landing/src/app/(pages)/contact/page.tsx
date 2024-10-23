@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import Colors from "../../colors";
@@ -9,56 +9,90 @@ import TickSVG from "../../asset/tick.svg";
 import DropDownUp from "../../asset/dropDownUp.svg";
 import DropDownDown from "../../asset/dropDownDown.svg";
 import { StyledButtonWhite } from "../../components/styled/StyledButtonWhite";
+import { time } from "console";
 
 const ContactCard = styled.div`
-  width: 610px;
+  max-width: 800px;
   max-height: 500px;
   border-radius: 9px;
   background: ${Colors.neutral50};
   display: flex;
   align-items: flex-start;
+  padding: 20px;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.25);
+  margin: 10px;
 `;
 
-const page = () => {
+const Contact = () => {
   const [upDownClicked, setUpDownClicked] = useState(false);
-  const alwaysTrue = useState(true);
-  const [timeZone, setTimeZone] = useState({
-    // First true/false is for mouse hovering at timezone showing the "TickSVG" or not.
-    // Second true/false is for clicking timezone and make it shown on Dropdown menu
-    "Asia-Pacfic": [false, false],
-    EMEA: [false, false],
-    Americas: [false, false],
+  // Define the type for the timeZone state
+  type TimeZoneState = {
+    [key: string]: {
+      hovered: boolean;
+      selected: boolean;
+      phoneNumber: string;
+    };
+  };
+
+  // Initialize the state with the new structure
+  const [timeZone, setTimeZone] = useState<TimeZoneState>({
+    "Asia-Pacific": {
+      hovered: false,
+      selected: false,
+      phoneNumber: "+852 5644 7891",
+    },
+    EMEA: { hovered: false, selected: false, phoneNumber: "+44 20 7946 0958" },
+    Americas: {
+      hovered: false,
+      selected: false,
+      phoneNumber: "+1 415 555 2671",
+    },
   });
 
-  const handleMouseEnter = (key, index) => {
+  const [selectedTimeZone, setSelectedTimeZone] = useState("Americas");
+
+  // Update the function signatures
+  const handleMouseEnter = (key: string) => {
     setTimeZone((prev) => ({
       ...prev,
-      [key]: prev[key].map((value, i) => (i === index ? true : value)),
+      [key]: { ...prev[key], hovered: true },
     }));
   };
 
-  const handleMouseLeave = (key, index) => {
+  const handleMouseLeave = (key: string) => {
     setTimeZone((prev) => ({
       ...prev,
-      [key]: prev[key].map((value, i) => (i === index ? false : value)),
+      [key]: { ...prev[key], hovered: false },
     }));
   };
-
-  const setItemSelected = (key, index) => {
-    Object.keys(timeZone).map((item) => {
-      timeZone[item][index] = item === key ? true : false;
+  const setItemSelected = (key: string) => {
+    setTimeZone((prev) => {
+      const newState = { ...prev };
+      Object.keys(newState).forEach((item) => {
+        newState[item].selected = item === key;
+      });
+      return newState;
     });
+    setSelectedTimeZone(key);
+    setUpDownClicked(true);
   };
 
-  if (upDownClicked === false) {
-    timeZone["Asia-Pacfic"][0] = false;
-    timeZone["EMEA"][0] = false;
-    timeZone["Americas"][0] = false;
-  }
+  useEffect(() => {
+    if (timeZone === undefined) {
+      return;
+    }
+    console.log('change selected timezone')
+    for (const key in timeZone) {
+      if (key == selectedTimeZone) {
+        timeZone[key].selected = true;
+        timeZone[key].hovered = true;
+      }
+    }
+  }, [selectedTimeZone]);
 
   return (
     <div>
-      <section className="hidden sm:block">
+      <section className="hidden md:block">
         <div>
           <div className="flex flex-col gap-12">
             <div
@@ -81,16 +115,17 @@ const page = () => {
                   marginTop: "8px",
                 }}
               >
-                We're here to help answer questions about Numaira’s digital
-                software solutions, services, and offerings.
+                {
+                  "We're here to help answer questions about Numaira’s digital software solutions, services, and offerings."
+                }
               </div>
             </div>
-            <div className="flex flex-row items-center justify-center gap-5">
+            <div className="flex flex-row items-center justify-center">
               <ContactCard
                 className="justify-center items-center"
                 style={{ height: "330px" }}
               >
-                <div className="flex flex-col gap-2 items-start justify-center">
+                <div className="flex flex-col gap-2 items-start justify-center px-5">
                   <div
                     style={{
                       color: Colors.primary,
@@ -119,7 +154,8 @@ const page = () => {
                     <div className="w-96 mt-2 absolute">
                       <button
                         type="button"
-                        className="relative w-full rounded-md bg-white py-1.5 pl-1 pr-3 h-10 text-left hover:cursor-pointer flex flex-row justify-between items-center"
+                        style={{border: "1px solid " + Colors.neutral300, borderRadius: "5px"}}
+                        className="relative w-full rounded-md bg-white py-6 px-2 h-10 text-left hover:cursor-pointer flex flex-row justify-between items-center"
                         onClick={() => {
                           setUpDownClicked((prev) => !prev);
                         }}
@@ -131,8 +167,13 @@ const page = () => {
                             fontSize: formats.textXL,
                           }}
                         >
-                          {Object.keys(timeZone).map((item) =>
-                            timeZone[item][1] ? <div>{item}</div> : ""
+                          {Object.keys(timeZone).map(
+                            (key: string, index: number) =>
+                              selectedTimeZone == key ? (
+                                <div key={index}>{key}</div>
+                              ) : (
+                                ""
+                              )
                           )}
                         </span>
                         {upDownClicked ? <DropDownUp /> : <DropDownDown />}
@@ -149,12 +190,12 @@ const page = () => {
                             <div
                               className="flex flex-col items-start width-96 bg-white hover:cursor-pointer"
                               key={item}
-                              onMouseEnter={() => handleMouseEnter(item, 0)}
-                              onMouseLeave={() => handleMouseLeave(item, 0)}
-                              onClick={() => setItemSelected(item, 1)}
+                              onMouseEnter={() => handleMouseEnter(item)}
+                              onMouseLeave={() => handleMouseLeave(item)}
+                              onClick={() => setItemSelected(item)}
                             >
                               <div className="flex flex-row p-2">
-                                {timeZone[item][0] ? (
+                                {timeZone[item]["hovered"] ? (
                                   <TickSVG />
                                 ) : (
                                   <TickSVG className="opacity-0" />
@@ -220,7 +261,7 @@ const page = () => {
           </div>
         </div>
       </section>
-      <section className="block sm:hidden">
+      <section className="block md:hidden">
         <div>
           <div className="flex flex-col gap-12">
             <div
@@ -244,14 +285,12 @@ const page = () => {
                   marginTop: "8px",
                 }}
               >
-                We're here to help answer questions about Numaira’s digital
-                software solutions, services, and offerings.
+                {"We're here to help answer questions about Numaira\’s digital software solutions, services, and offerings."}
               </div>
             </div>
             <div
-              className="flex flex-col items-center justify-center gap-5"
+              className="flex flex-col items-center justify-center gap-5 px-5"
               style={{
-                width: "350px",
                 marginLeft: "5%",
                 marginTop: "5%",
                 marginRight: "5%",
@@ -260,7 +299,7 @@ const page = () => {
             >
               <ContactCard
                 className="justify-center items-center"
-                style={{ height: "400px", width: "350px" }}
+                style={{ minWidth: "350px", width: "100%" }}
               >
                 <div className="flex flex-col gap-2 items-start justify-center">
                   <div
@@ -292,6 +331,7 @@ const page = () => {
                   </div>
                   <div className="flex flex-col w-64 items-center">
                     <div className="w-72 mt-2">
+                      
                       <button
                         type="button"
                         className="relative w-full rounded-md bg-white py-1.5 pl-1 pr-3 h-10 text-left hover:cursor-pointer flex flex-row justify-between items-center"
@@ -306,8 +346,13 @@ const page = () => {
                             fontSize: formats.textXL,
                           }}
                         >
-                          {Object.keys(timeZone).map((item) =>
-                            timeZone[item][1] ? <div>{item}</div> : ""
+                          {Object.keys(timeZone).map(
+                            (key: string, index: number) =>
+                              selectedTimeZone == key ? (
+                                <div key={index}>{key}</div>
+                              ) : (
+                                ""
+                              )
                           )}
                         </span>
                         {upDownClicked ? (
@@ -332,12 +377,12 @@ const page = () => {
                             <div
                               className="flex flex-col items-start width-96 bg-white hover:cursor-pointer"
                               key={item}
-                              onMouseEnter={() => handleMouseEnter(item, 0)}
-                              onMouseLeave={() => handleMouseLeave(item, 0)}
-                              onClick={() => setItemSelected(item, 1)}
+                              onMouseEnter={() => handleMouseEnter(item)}
+                              onMouseLeave={() => handleMouseLeave(item)}
+                              onClick={() => setItemSelected(item)}
                             >
                               <div className="flex flex-row p-2">
-                                {timeZone[item][0] ? (
+                                { timeZone[item]["hovered"] ? (
                                   <TickSVG />
                                 ) : (
                                   <TickSVG className="opacity-0" />
@@ -364,7 +409,7 @@ const page = () => {
               </ContactCard>
               <ContactCard
                 className="justify-center items-center"
-                style={{ height: "330px", width: "350px" }}
+                style={{ height: "330px", minWidth: "350px", width: "100%"  }}
               >
                 <div className="flex flex-col gap-2 items-start justify-center">
                   <div
@@ -410,4 +455,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Contact;
