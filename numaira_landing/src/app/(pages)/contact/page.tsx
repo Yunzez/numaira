@@ -1,11 +1,13 @@
 "use client";
 import React from "react";
 import { useState } from "react";
-import { BiChevronUp, BiChevronDown, BiCheck } from "react-icons/bi";
 import styled from "styled-components";
 import Colors from "../../colors";
 import formats from "../../formats";
 import CopySVG from "../../asset/copy.svg";
+import TickSVG from "../../asset/tick.svg";
+import DropDownUp from "../../asset/dropDownUp.svg";
+import DropDownDown from "../../asset/dropDownDown.svg";
 import { StyledButtonWhite } from "../../components/styled/StyledButtonWhite";
 
 const ContactCard = styled.div`
@@ -21,7 +23,7 @@ const page = () => {
   const [upDownClicked, setUpDownClicked] = useState(false);
   const alwaysTrue = useState(true);
   const [timeZone, setTimeZone] = useState({
-    // First true/false is for mouse hovering at timezone showing the "BiCheck" or not.
+    // First true/false is for mouse hovering at timezone showing the "TickSVG" or not.
     // Second true/false is for clicking timezone and make it shown on Dropdown menu
     "Asia-Pacfic": [false, false],
     EMEA: [false, false],
@@ -43,15 +45,11 @@ const page = () => {
   };
 
   const setItemSelected = (key, index) => {
-    console.log(`In setItemSelected. Setting ${key} to true...`);
-    console.log(`current timeZone is: ${timeZone["EMEA"]}`);
-    setTimeZone((prev) => {
-      const updatedTimeZone = Object.keys(prev).reduce((acc, item) => {
-        acc[item] = [prev[item[0]], item === key && index === 1 ? true : false];
-        return acc;
-      }, {});
-      console.log(`updatedTimeZone is: ${updatedTimeZone["EMEA"]}`);
-      return updatedTimeZone;
+    // console.log(
+    //   `key is ${key}, index is ${index}, timeZone[key] is ${timeZone[key][index]}`
+    // );
+    Object.keys(timeZone).map((item) => {
+      timeZone[item][index] = item === key ? true : false;
     });
   };
 
@@ -140,7 +138,7 @@ const page = () => {
                             timeZone[item][1] ? <div>{item}</div> : ""
                           )}
                         </span>
-                        {upDownClicked ? <BiChevronUp /> : <BiChevronDown />}
+                        {upDownClicked ? <DropDownUp /> : <DropDownDown />}
                       </button>
 
                       {upDownClicked ? (
@@ -160,9 +158,9 @@ const page = () => {
                             >
                               <div className="flex flex-row p-2">
                                 {timeZone[item][0] ? (
-                                  <BiCheck />
+                                  <TickSVG />
                                 ) : (
-                                  <BiCheck className="opacity-0" />
+                                  <TickSVG className="opacity-0" />
                                 )}
                                 <span
                                   className="ml-2 text-left"
@@ -315,7 +313,15 @@ const page = () => {
                             timeZone[item][1] ? <div>{item}</div> : ""
                           )}
                         </span>
-                        {upDownClicked ? <BiChevronUp /> : <BiChevronDown />}
+                        {upDownClicked ? (
+                          <DropDownUp
+                            style={{ width: "30px", height: "30px" }}
+                          />
+                        ) : (
+                          <DropDownDown
+                            style={{ width: "30px", height: "30px" }}
+                          />
+                        )}
                       </button>
 
                       {upDownClicked ? (
@@ -335,9 +341,9 @@ const page = () => {
                             >
                               <div className="flex flex-row p-2">
                                 {timeZone[item][0] ? (
-                                  <BiCheck />
+                                  <TickSVG />
                                 ) : (
-                                  <BiCheck className="opacity-0" />
+                                  <TickSVG className="opacity-0" />
                                 )}
                                 <span
                                   className="ml-2 text-left"
