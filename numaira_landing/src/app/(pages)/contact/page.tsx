@@ -9,7 +9,6 @@ import TickSVG from "../../asset/tick.svg";
 import DropDownUp from "../../asset/dropDownUp.svg";
 import DropDownDown from "../../asset/dropDownDown.svg";
 import { StyledButtonWhite } from "../../components/styled/StyledButtonWhite";
-import { time } from "console";
 
 const ContactCard = styled.div`
   max-width: 800px;

@@ -6,7 +6,7 @@ import styled from "styled-components";
 import PhoneNumberInput from "@/app/components/phoneNumberInput";
 import { StyledButton } from "@/app/components/styled/StyledButton";
 import RocketSVG from "@/app/asset/rocket.svg";
-const page = () => {
+const Demo = () => {
   const [requestSent, setRequestSent] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -250,4 +250,4 @@ const CustomInputBox = styled.input`
   margin: 5px;
 `;
 
-export default page;
+export default Demo;
