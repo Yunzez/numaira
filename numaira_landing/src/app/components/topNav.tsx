@@ -58,7 +58,7 @@ const TopNav: React.FC = () => {
     <Navbar>
       {/* Desktop Navigation */}
       <section className="hidden md:block">
-        <UpdateBanner message="🚀 Numaira Version 1.0 Launches In October 2024" />
+        <UpdateBanner message="🚀 Numaira Version 1.0 Launches In December 2024" />
         <div
           className="flex justify-between gap-5 px-10 items-center"
           style={{ width: "100%" }}
