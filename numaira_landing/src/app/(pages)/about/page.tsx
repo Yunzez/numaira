@@ -101,7 +101,7 @@ const InfoContainer = styled.div<{ reverse?: boolean }>`
   gap: 40px;
 
   @media (max-width: 450px) {
-    flex-direction: ${({ reverse }) => (reverse ? "column-reverse" : "column" )};
+    flex-direction: ${({ reverse }) => (reverse ? "column-reverse" : "column")};
   }
 `;
 
@@ -110,7 +110,7 @@ const InfoTextContainer = styled.div`
   flex-direction: column;
   gap: 10px;
   width: 50%;
-  
+
   @media (max-width: 450px) {
     width: auto;
   }
@@ -127,19 +127,26 @@ const InfoText = styled.p`
 `;
 
 const ImgColContainer = styled.div`
- 
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 50%;
+  width: 40%;
   @media (max-width: 450px) {
     width: 100%;
+  }
+
+  @media (max-width: 900px) {
+    width: 50%;
+  }
+
+  @media (max-width: 1400px) {
+    width: 40%;
   }
 `;
 
 // const ImgContainerMobile = styled.div<{ width: number; height: number }>`
 //   display: none;
-  
+
 //   @media (max-width: 450px) {
 //     display: block
 //      width: ${({ width }) => width}px;
@@ -187,16 +194,19 @@ const page = () => {
             </InfoText>
           </InfoTextContainer>
           <ImgColContainer>
-            <div style={{ width: '100%', height: '100%', minHeight:"150px", position:'relative'}}>
-            <Image
-              src={TheTeam}
-              alt="The Team"
-              fill={true}
-              style={{ borderRadius: formats.roundmd}}
-            />
-
+            <div
+              style={{ width: "100%", height: "100%", position: "relative" }}
+            >
+              <Image
+                src={TheTeam}
+                alt="The Team"
+                fill={true}
+                 layout='fill'
+                objectFit='cover'
+                style={{ borderRadius: formats.roundmd }}
+              />
             </div>
-            
+
             <div className="w-100 flex justify-center">
               <Credits name={"NASA"} />
             </div>
@@ -211,14 +221,16 @@ const page = () => {
         </Descr>
         <InfoContainer reverse={true}>
           <ImgColContainer>
-            <div style={{ width: '100%', height: '100%', minHeight:"150px", minWidth:"100%", position:'relative'}}>
-            <Image
-              src={FoundingStory}
-              alt="The Team"
-              fill={true}
-              style={{ borderRadius: formats.roundmd}}
-            />
-
+            <div
+              style={{ width: "100%", height: "100%", position: "relative" }}
+            >
+              <Image
+                src={FoundingStory}
+                alt="Founding Story"
+                layout='fill'
+                objectFit='cover'
+                style={{ borderRadius: formats.roundmd }}
+              />
             </div>
             <div className="w-100 flex justify-center">
               <Credits name={"Manson Yim"} />
