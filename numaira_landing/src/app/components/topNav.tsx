@@ -66,8 +66,9 @@ const TopNav: React.FC = () => {
           <div className="flex justify-center gap-2 items-center">
             <LogoSVG width={40} height={40} fill={Colors.brand500} />
             <div
-              className="font-bold"
+              className="font-bold cursor-pointer"
               style={{ color: Colors.brand500, fontSize: formats.textXL }}
+              onClick={() => router.push("/")}
             >
               Numaira
             </div>

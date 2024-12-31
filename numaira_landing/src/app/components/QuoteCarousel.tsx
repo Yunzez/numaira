@@ -83,11 +83,64 @@ const Dot = styled.button<{ active: boolean }>`
   }
 `;
 
+import { useEffect } from "react";
+
 const QuoteCarousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isSwipe = Math.abs(distance) > 50;
+
+    if (isSwipe) {
+      if (distance > 0) {
+        setActiveIndex((prevIndex) => (prevIndex + 1) % 3);
+      } else {
+        setActiveIndex((prevIndex) => (prevIndex - 1 + 3) % 3);
+      }
+    }
+
+    setTouchStart(null);
+    setTouchEnd(null);
+
+    // Reset the interval
+    if (intervalId) {
+      clearInterval(intervalId);
+    }
+    const newIntervalId = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % 3);
+    }, 5000);
+    setIntervalId(newIntervalId);
+  };
+
+  useEffect(() => {
+    const newIntervalId = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % 3);
+    }, 5000);
+    setIntervalId(newIntervalId);
+
+    return () => clearInterval(newIntervalId);
+  }, []);
 
   return (
-    <CarouselWrapper>
+    <CarouselWrapper
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       <CarouselContainer>
         <Slides activeIndex={activeIndex}>
           {/* Slide 1 */}

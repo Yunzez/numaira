@@ -30,9 +30,10 @@ import SyncSpace from "./asset/SyncSpace.svg";
 import SolutionWorkflow from "./asset/SolutionWorkflow.svg";
 import SyncSpacePng from "./asset/SyncSpace.png";
 import WorkflowPng from "./asset/Workflow.png";
+import { useRouter } from "next/navigation";
 
 // notes:
-// changed "The Problem" section cards' gap from auto to 40px
+// FIXME: changed "The Problem" section cards' gap from auto to 40px
 // changed font sizes in Descr from 'format' to 'px'
 // changed font size of p element in MemberCompaniesContainer
 // need to test carousel if it can be swiped on mobile
@@ -60,9 +61,14 @@ const SectionContainer = styled.div`
   margin: 100px 200px;
   width: calc(100% - 400px);
 
-  @media (max-width: 393px) {
+  @media (max-width: 450px) {
     margin: 40px 24px;
     width: calc(100% - 48px);
+  }
+
+  @media (max-width: 850px) {
+    margin: 40px 24px;
+    width: calc(100% - 88px);
   }
 `;
 
@@ -70,7 +76,7 @@ const MemberCompaniesContainer = styled.div`
   margin: 20px 200px 100px 200px;
   width: calc(100% - 400px);
 
-  @media (max-width: 393px) {
+  @media (max-width: 450px) {
     margin: 20px 24px 40px 24px;
     width: calc(100% - 48px);
   }
@@ -82,7 +88,7 @@ const MemberCompaniesText = styled.p`
   font-weight: 600;
   margin-bottom: 40px;
 
-  @media (max-width: 393px) {
+  @media (max-width: 450px) {
     font-size: 14px;
   }
 `;
@@ -92,7 +98,7 @@ const IntroTitle = styled.p`
   font-size: 24px;
   font-weight: 600;
 
-  @media (max-width: 393px) {
+  @media (max-width: 450px) {
     font-size: 18px;
   }
 `;
@@ -103,7 +109,7 @@ const IntroDescr = styled.div`
   font-weight: 600;
   margin: 12px 0 24px 0;
 
-  @media (max-width: 393px) {
+  @media (max-width: 450px) {
     font-size: 36px;
   }
 `;
@@ -114,7 +120,7 @@ const TryDescr = styled.div`
   font-weight: 600;
   margin: 24px 0 60px 0;
 
-  @media (max-width: 393px) {
+  @media (max-width: 450px) {
     font-size: 24px;
     margin: 12px 0 40px 0;
   }
@@ -126,7 +132,7 @@ const Descr = styled.div`
   font-weight: 600;
   margin: 24px 0 80px 0;
 
-  @media (max-width: 393px) {
+  @media (max-width: 450px) {
     font-size: 24px;
     margin: 12px 0 40px 0;
   }
@@ -146,13 +152,16 @@ const SectionImg = styled.svg`
 
 const ImgContainer = styled.div`
   margin-top: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `;
 
 const QuoteContainer = styled.div`
   display: flex;
   gap: 40px;
-
-  @media (max-width: 393px) {
+  width: 100%;
+  @media (max-width: 450px) {
     display: none;
   }
 `;
@@ -175,7 +184,7 @@ const IntroButtonContainer = styled.div`
   justify-content: center;
   gap: 12px;
 
-  @media (max-width: 393px) {
+  @media (max-width: 450px) {
     gap: 8px;
   }
 `;
@@ -193,7 +202,7 @@ const EmailText = styled.div`
   width: 500px;
   margin: 0 auto;
 
-  @media (max-width: 393px) {
+  @media (max-width: 450px) {
     width: auto;
     font-size: 16px;
   }
@@ -202,7 +211,6 @@ const EmailText = styled.div`
 export default function Home() {
   const router = useRouter();
   const pathname = usePathname();
-
   return (
     <div className="flex flex-col items-center justify-start text-center w-100">
       {/* <div style={{ maxHeight: "350px", maxWidth: "600px" }}>
@@ -270,10 +278,10 @@ export default function Home() {
         </ImgContainer> */}
       </SectionContainer>
 
-      <SectionContainer>
+      {/* <SectionContainer>
         <SectionHeader svg={<Briefcase/>} title={"Use Cases"}></SectionHeader>
         <Descr>Numaira facilitates seamless data entry no matter your industry</Descr>
-      </SectionContainer>
+      </SectionContainer> */}
 
       <SectionContainer>
         <SectionHeader svg={<Sprout/>} title={"Funding"}></SectionHeader>

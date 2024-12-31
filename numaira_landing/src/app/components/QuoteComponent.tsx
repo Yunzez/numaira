@@ -18,7 +18,7 @@ const QuoteComponent = (props: QuoteTypes) => {
    const QuoteContainer = styled.div`
        background-color: ${colors.neutral50};
        padding: 32px;
-       border-radius: 12px;
+       border-radius: ${formats.roundlg};
        display: flex;
        flex-direction: column;
    `;
