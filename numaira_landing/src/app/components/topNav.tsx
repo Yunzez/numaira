@@ -114,7 +114,7 @@ const TopNav: React.FC = () => {
                   cursor: "pointer",
                 }}
               >
-                Join Us
+                Contact
               </div>
             </div>
             <div>

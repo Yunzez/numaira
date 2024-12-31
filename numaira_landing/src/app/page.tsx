@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import styled, { keyframes } from "styled-components";
+import { useRouter, usePathname } from "next/navigation";
 import landingImage from "./asset/landing.png";
 import Colors from "./colors";
 import formats from "./formats";
@@ -199,6 +200,8 @@ const EmailText = styled.div`
 `;
 
 export default function Home() {
+  const router = useRouter();
+  const pathname = usePathname();
 
   return (
     <div className="flex flex-col items-center justify-start text-center w-100">
@@ -244,7 +247,7 @@ export default function Home() {
       </SectionContainer>
       
       <MemberCompaniesContainer>
-        <MemberCompaniesText>Our Team Members Come From Trusted Companies</MemberCompaniesText>
+        <MemberCompaniesText>Developed by top performers, for top performers</MemberCompaniesText>
         <Marquee Index={0} TotalItems={7}/>
       </MemberCompaniesContainer>
 
@@ -262,10 +265,9 @@ export default function Home() {
       <SectionContainer>
         <SectionHeader svg={<SparkleDoc/>} title={"Solution Workflow"}></SectionHeader>
         <Descr>Scale and automate your data alignment needs using AI</Descr>
-        {/* <SectionImg as={SolutionWorkflow}></SectionImg> */}
-        <ImgContainer>
+        {/* <ImgContainer>
           <Image src={WorkflowPng} alt="Workflow Image" />
-        </ImgContainer>
+        </ImgContainer> */}
       </SectionContainer>
 
       <SectionContainer>
@@ -281,18 +283,19 @@ export default function Home() {
         </CyberportContainer>
       </SectionContainer>
 
-      <SectionContainer>
+      {/* <SectionContainer>
         <SectionHeader svg={<Help/>} title={"FAQs"}></SectionHeader>
         <Descr>Frequently Asked Questions</Descr>
         <Accordion/>
         <EmailText><BlackText>Don’t see your question(s) above? Get answers by sending a message to </BlackText><Underline><a href="mailto:numairaai@proton.me">numairaai@proton.me</a></Underline></EmailText>
-      </SectionContainer>
+      </SectionContainer> */}
 
       <SectionContainer>
         <SectionHeader svg={<Book/>} title={"Try Numaira"}></SectionHeader>
         <TryDescr>Numaira is ready for testing. Book a demo today to start automating the future!</TryDescr>
         <ButtonContainer>
-          <Button text={"Request A Demo"} variant={ButtonVariant.Primary} onClick={() => {console.log("hi")}}></Button>
+          <Button text={"Request A Demo"} variant={ButtonVariant.Primary} onClick={() => router.push("/demo")}
+                className={pathname === "/demo" ? "active" : ""}></Button>
         </ButtonContainer>
       </SectionContainer>
     </div>

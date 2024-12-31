@@ -64,9 +64,9 @@ const QuoteComponent = (props: QuoteTypes) => {
            <SourceText>
                {props.source}
            </SourceText>
-           <LogoContainer>
+           {/* <LogoContainer>
                {props.svg}
-           </LogoContainer>
+           </LogoContainer> */}
        </BottomRow>
    </QuoteContainer>
  );
