@@ -244,13 +244,13 @@ export default function Home() {
         <QuoteCarousel/>
       </SectionContainer>
 
-      <SectionContainer>
+      {/* <SectionContainer>
         <SectionHeader svg={<SparkleDoc/>} title={"Solution Workflow"}></SectionHeader>
         <Descr>Scale and automate your data alignment needs using AI</Descr>
-        {/* <ImgContainer>
+        <ImgContainer>
           <Image src={WorkflowPng} alt="Workflow Image" />
-        </ImgContainer> */}
-      </SectionContainer>
+        </ImgContainer>
+      </SectionContainer> */}
 
       {/* <SectionContainer>
         <SectionHeader svg={<Briefcase/>} title={"Use Cases"}></SectionHeader>
