@@ -150,9 +150,9 @@ const QuoteCarousel = () => {
               The most time-consuming part is finding and picking data from sources.
             </QuoteText>
             <SourceText>Equity Researcher</SourceText>
-            <LogoContainer>
+            {/*<LogoContainer>
               <Image src={CMBILogoPng} alt="CMBI Logo" width={100} height={50} />
-            </LogoContainer>
+            </LogoContainer>*/}
           </Slide>
 
           {/* Slide 2 */}
@@ -162,9 +162,9 @@ const QuoteCarousel = () => {
               Updating numbers is a frequent demand involving repetitive work.
             </QuoteText>
             <SourceText>Investment Banker</SourceText>
-            <LogoContainer>
+            {/*<LogoContainer>
               <Image src={CMBILogoPng} alt="CMBI Logo" width={100} height={50} />
-            </LogoContainer>
+            </LogoContainer>*/}
           </Slide>
 
           {/* Slide 3 */}
@@ -174,9 +174,9 @@ const QuoteCarousel = () => {
               Auditing is constantly short staffed with tight deadlines and repetitive work.
             </QuoteText>
             <SourceText>ESG Auditor</SourceText>
-            <LogoContainer>
+            {/*<LogoContainer>
               <Image src={PWCLogoPng} alt="PWC Logo" width={100} height={50} />
-            </LogoContainer>
+            </LogoContainer>*/}
           </Slide>
         </Slides>
       </CarouselContainer>
