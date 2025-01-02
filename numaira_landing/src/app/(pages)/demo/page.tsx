@@ -173,7 +173,7 @@ const Demo = () => {
                   if (isValidResponse()) {
                     // sendRequest(firstName, lastName, email, phoneNumber);
                     console.log(getSheetData().then((data) => console.log(data)));
-                    sendRequest(firstName, lastName, email, phoneNumber);
+                    console.log(sendRequest(firstName, lastName, email, phoneNumber).then((data) => console.log(data)));
                     setRequestSent(true);
                   } else {
                     setError(true);

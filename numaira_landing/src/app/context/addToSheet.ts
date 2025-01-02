@@ -27,7 +27,7 @@ export async function getSheetData() {
       range: "Sheet1",
     });
     console.log("Data fetched successfully:", data.data.values);
-    return { data: data.data.values };
+    return { data: "data checked correctly" };
   } catch (error) {
     console.error("Error fetching data:", error);
     return { data: null };
@@ -68,7 +68,9 @@ export async function sendRequest(
       },
     });
     console.log("Data appended successfully");
+    return { data: "Data appended successfully" };
   } catch (error) {
     console.error("Error appending data:", error);
+    return { data: "failed to append data" };
   }
 }
