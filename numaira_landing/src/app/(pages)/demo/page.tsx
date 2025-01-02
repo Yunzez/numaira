@@ -6,6 +6,8 @@ import styled from "styled-components";
 import PhoneNumberInput from "@/app/components/phoneNumberInput";
 import { StyledButton } from "@/app/components/styled/StyledButton";
 import RocketSVG from "@/app/asset/rocket.svg";
+import { getSheetData, sendRequest } from "@/app/context/addToSheet";
+
 const Demo = () => {
   const [requestSent, setRequestSent] = useState(false);
   const [firstName, setFirstName] = useState("");
@@ -17,6 +19,9 @@ const Demo = () => {
     return firstName && lastName && email && phoneNumber;
   };
 
+
+
+  
   return (
     <div className="md:flex justify-start mt-10">
       <section
@@ -166,6 +171,9 @@ const Demo = () => {
                 onClick={() => {
                   console.log("Request A Demo");
                   if (isValidResponse()) {
+                    // sendRequest(firstName, lastName, email, phoneNumber);
+                    console.log(getSheetData().then((data) => console.log(data)));
+                    sendRequest(firstName, lastName, email, phoneNumber);
                     setRequestSent(true);
                   } else {
                     setError(true);
