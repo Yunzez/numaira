@@ -30,7 +30,6 @@ import SyncSpace from "./asset/SyncSpace.svg";
 import SolutionWorkflow from "./asset/SolutionWorkflow.svg";
 import SyncSpacePng from "./asset/SyncSpace.png";
 import WorkflowPng from "./asset/Workflow.png";
-import { useRouter } from "next/navigation";
 
 // notes:
 // FIXME: changed "The Problem" section cards' gap from auto to 40px
