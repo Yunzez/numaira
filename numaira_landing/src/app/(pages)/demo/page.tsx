@@ -98,8 +98,7 @@ const Demo = () => {
                 Your request is sent!
               </div>
               <div style={{ fontSize: Formats.textSM }}>
-                A Numaira team member will be reaching out to you within 24
-                hours.
+                A Numaira team member will be reaching out to you soon.
               </div>
             </div>
           ) : (
