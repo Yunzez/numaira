@@ -215,7 +215,7 @@ export default function Home() {
 
       <SectionContainer style={{ marginTop: "80px", marginBottom: "80px"}}>
         <IntroTitle>Introducing Numaira</IntroTitle>
-        <IntroDescr>Automate data entry for financial documents in 1-click</IntroDescr>
+        <IntroDescr>Automate data-driven financial documents in 1-click</IntroDescr>
         <IntroButtonContainer>
           <p>Launching in March 2025</p>
           {/* <Button text={"Request A Demo"} variant={ButtonVariant.Primary} onClick={() => {console.log("hi")}}></Button>
@@ -234,9 +234,11 @@ export default function Home() {
       </MemberCompaniesContainer>
 
       <SectionContainer>
-        <SectionHeader svg={<Pages/>} title={"The Problem"}></SectionHeader>
-        <Descr>Manual data alignment for documents is inefficient and repetitive</Descr>
+        <SectionHeader svg={<Pages/>} title={"Data Handling Made Easy"}></SectionHeader>
+        <Descr>Automatic data search & alignment that eliminates the repetetive, the tedious, and the mundane.</Descr>
         <QuoteContainer>
+
+
           <Quote quote={"The most time-consuming part is finding and picking data from sources."} source={"Equity Researcher"} svg={<CMBILogo/>}></Quote>
           <Quote quote={"Updating numbers is a frequent demand involving repetitive work."} source={"Investment Banker"} svg={<CMBILogo/>}></Quote>
           <Quote quote={"Auditing is constantly short staffed with tight deadlines and repetitive work."} source={"ESG Auditor"} svg={<PWCLogo style={{width: "80px"}}/>}></Quote>

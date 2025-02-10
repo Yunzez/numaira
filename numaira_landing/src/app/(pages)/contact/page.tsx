@@ -115,11 +115,12 @@ const Contact = () => {
                 }}
               >
                 {
-                  "We're here to help answer questions about Numaira’s digital software solutions, services, and offerings."
+                  "We're here to help answer questions about Numaira's digital software solutions, services, and offerings."
                 }
               </div>
             </div>
             <div className="flex flex-row items-center justify-center">
+              {/* Commented out Call Us card for potential reuse
               <ContactCard
                 className="justify-center items-center"
                 style={{ height: "330px" }}
@@ -219,6 +220,7 @@ const Contact = () => {
                   </div>
                 </div>
               </ContactCard>
+              */}
               <ContactCard
                 className="justify-center items-center"
                 style={{ height: "330px" }}
@@ -250,7 +252,9 @@ const Contact = () => {
                     <div className="flex flex-row h-8 w-56">
                       <CopySVG width={30} height={30} />
                       <div style={{ fontSize: formats.textLG }}>
-                        numairaai@proton.me
+                        <a href="mailto:frank@numaira.org" style={{ textDecoration: 'none', color: 'inherit' }}>
+                          frank@numaira.org
+                        </a>
                       </div>
                     </div>
                   </StyledButtonWhite>
@@ -284,7 +288,7 @@ const Contact = () => {
                   marginTop: "8px",
                 }}
               >
-                {"We're here to help answer questions about Numaira\’s digital software solutions, services, and offerings."}
+                {"We're here to help answer questions about Numaira's digital software solutions, services, and offerings."}
               </div>
             </div>
             <div
@@ -296,6 +300,7 @@ const Contact = () => {
                 marginBottom: "10%",
               }}
             >
+              {/* Commented out mobile Call Us card
               <ContactCard
                 className="justify-center items-center"
                 style={{ minWidth: "350px", width: "100%" }}
@@ -406,6 +411,7 @@ const Contact = () => {
                   </div>
                 </div>
               </ContactCard>
+              */}
               <ContactCard
                 className="justify-center items-center"
                 style={{ height: "330px", minWidth: "350px", width: "100%"  }}
@@ -440,7 +446,9 @@ const Contact = () => {
                     <div className="flex flex-row h-8 w-56">
                       <CopySVG width={30} height={30} />
                       <div style={{ fontSize: formats.textLG }}>
-                        numairaai@proton.me
+                        <a href="mailto:frank@numaira.org" style={{ textDecoration: 'none', color: 'inherit' }}>
+                          frank@numaira.org
+                        </a>
                       </div>
                     </div>
                   </StyledButtonWhite>
