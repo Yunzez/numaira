@@ -217,7 +217,7 @@ export default function Home() {
         <IntroTitle>Introducing Numaira</IntroTitle>
         <IntroDescr>Automate data entry for financial documents in 1-click</IntroDescr>
         <IntroButtonContainer>
-          <p>Launching in December 2024</p>
+          <p>Launching in March 2025</p>
           {/* <Button text={"Request A Demo"} variant={ButtonVariant.Primary} onClick={() => {console.log("hi")}}></Button>
           <Button text={"Solution"} variant={ButtonVariant.Secondary} onClick={() => {console.log("hi")}}></Button> */}
         </IntroButtonContainer>
