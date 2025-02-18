@@ -13,8 +13,8 @@ const ComingSoon = () => {
             Coming Soon
           </div>
           <div>
-            <p>Numaira’s SaaS model and pricing is </p>
-            <p>currently under development.</p>
+            <p>This section is 
+            currently under development.</p>
           </div>
         </div>
       </div>

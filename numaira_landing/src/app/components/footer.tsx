@@ -85,28 +85,28 @@ const Footer = () => {
             <div className="flex justify-start" style={{ gap: "72px" }}>
               <FooterCoreLayout>
                 <FooterLessBolderFont>
-                  <h5>product</h5>
+                  <h5>Product</h5>
                 </FooterLessBolderFont>
-                <FooterBoldedFont>Features</FooterBoldedFont>
-                <FooterBoldedFont>Use Cases</FooterBoldedFont>
-                <FooterBoldedFont>Pricing</FooterBoldedFont>
-                <FooterBoldedFont>FAQs</FooterBoldedFont>
+                <FooterBoldedFont><a href="/dashboard">Features</a></FooterBoldedFont>
+                <FooterBoldedFont><a href="/dashboard">Use Cases</a></FooterBoldedFont>
+                <FooterBoldedFont><a href="/pricing">Pricing</a></FooterBoldedFont>
+                <FooterBoldedFont><a href="/dashboard">FAQs</a></FooterBoldedFont>
               </FooterCoreLayout>
               <FooterCoreLayout>
                 <FooterLessBolderFont>
-                  <h5>company</h5>
+                  <h5>Company</h5>
                 </FooterLessBolderFont>
-                <FooterBoldedFont>About</FooterBoldedFont>
-                <FooterBoldedFont>Contact</FooterBoldedFont>
-                <FooterBoldedFont>Join Us</FooterBoldedFont>
+                <FooterBoldedFont><a href="/about">About</a></FooterBoldedFont>
+                <FooterBoldedFont><a href="/contact">Contact</a></FooterBoldedFont>
+                <FooterBoldedFont><a href="/join">Join Us</a></FooterBoldedFont>
               </FooterCoreLayout>
               <FooterCoreLayout>
                 <FooterLessBolderFont>
                   <h5>Legal</h5>
                 </FooterLessBolderFont>
-                <FooterBoldedFont>Privacy</FooterBoldedFont>
-                <FooterBoldedFont>Cookies</FooterBoldedFont>
-                <FooterBoldedFont>Terms</FooterBoldedFont>
+                <FooterBoldedFont><a href="/dashboard">Privacy</a></FooterBoldedFont>
+                <FooterBoldedFont><a href="/dashboard">Cookies</a></FooterBoldedFont>
+                <FooterBoldedFont><a href="/terms" target="_blank" rel="noopener noreferrer">Terms</a></FooterBoldedFont>
               </FooterCoreLayout>
             </div>
           </div>
@@ -217,26 +217,26 @@ const Footer = () => {
                 <FooterLessBolderFont>
                   <h5>Product</h5>
                 </FooterLessBolderFont>
-                <FooterBoldedFont>Features</FooterBoldedFont>
-                <FooterBoldedFont>Use Cases</FooterBoldedFont>
-                <FooterBoldedFont>Pricing</FooterBoldedFont>
-                <FooterBoldedFont>FAQs</FooterBoldedFont>
+                <FooterBoldedFont><a href="/dashboard">Features</a></FooterBoldedFont>
+                <FooterBoldedFont><a href="/dashboard">Use Cases</a></FooterBoldedFont>
+                <FooterBoldedFont><a href="/pricing">Pricing</a></FooterBoldedFont>
+                <FooterBoldedFont><a href="/dashboard">FAQs</a></FooterBoldedFont>
               </FooterCoreLayout>
               <FooterCoreLayout style={{ gridColumn: "2", gridRow: 1 }}>
                 <FooterLessBolderFont>
                   <h5>Company</h5>
                 </FooterLessBolderFont>
-                <FooterBoldedFont>About</FooterBoldedFont>
-                <FooterBoldedFont>Contact</FooterBoldedFont>
-                <FooterBoldedFont>Join Us</FooterBoldedFont>
+                <FooterBoldedFont><a href="/about">About</a></FooterBoldedFont>
+                <FooterBoldedFont><a href="/contact">Contact</a></FooterBoldedFont>
+                <FooterBoldedFont><a href="/join">Join Us</a></FooterBoldedFont>
               </FooterCoreLayout>
               <FooterCoreLayout style={{ gridColumn: "1", gridRow: 2 }}>
                 <FooterLessBolderFont>
                   <h5>Legal</h5>
                 </FooterLessBolderFont>
-                <FooterBoldedFont>Privacy</FooterBoldedFont>
-                <FooterBoldedFont>Cookies</FooterBoldedFont>
-                <FooterBoldedFont>Terms</FooterBoldedFont>
+                <FooterBoldedFont><a href="/dashboard">Privacy</a></FooterBoldedFont>
+                <FooterBoldedFont><a href="/dashboard">Cookies</a></FooterBoldedFont>
+                <FooterBoldedFont><a href="/terms" target="_blank" rel="noopener noreferrer">Terms</a></FooterBoldedFont>
               </FooterCoreLayout>
             </div>
           </div>
