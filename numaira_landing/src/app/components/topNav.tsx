@@ -120,8 +120,8 @@ const TopNav: React.FC = () => {
             </div>
             <div>
               <StyledButton
-                onClick={() => router.push("/demo")}
-                className={pathname === "/demo" ? "active" : ""}
+                onClick={() => router.push("/dashboard")}
+                className={pathname === "/dashboard" ? "active" : ""}
               >
                 Request a Demo
               </StyledButton>
