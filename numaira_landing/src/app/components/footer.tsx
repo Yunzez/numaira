@@ -92,26 +92,26 @@ const Footer = () => {
                 <FooterLessBolderFont>
                   <h5>Product</h5>
                 </FooterLessBolderFont>
-                <FooterBoldedFont>Features</FooterBoldedFont>
-                <FooterBoldedFont>Use Cases</FooterBoldedFont>
-                <FooterBoldedFont>Pricing</FooterBoldedFont>
-                <FooterBoldedFont>FAQs</FooterBoldedFont>
+                <FooterBoldedFont onClick={() => router.push("/")}>Features</FooterBoldedFont>
+                <FooterBoldedFont onClick={() => router.push("/")}>Use Cases</FooterBoldedFont>
+                <FooterBoldedFont onClick={() => router.push("/pricing")}>Pricing</FooterBoldedFont>
+                <FooterBoldedFont onClick={() => router.push("/faq")}>FAQs</FooterBoldedFont>
               </FooterCoreLayout>
               <FooterCoreLayout>
                 <FooterLessBolderFont>
                   <h5>Company</h5>
                 </FooterLessBolderFont>
-                <FooterBoldedFont>About</FooterBoldedFont>
-                <FooterBoldedFont>Contact</FooterBoldedFont>
-                <FooterBoldedFont>Join Us</FooterBoldedFont>
+                <FooterBoldedFont onClick={() => router.push("/about")}>About</FooterBoldedFont>
+                <FooterBoldedFont onClick={() => router.push("/contact")}>Contact</FooterBoldedFont>
+                <FooterBoldedFont onClick={() => router.push("/join")}>Join Us</FooterBoldedFont>
               </FooterCoreLayout>
               <FooterCoreLayout>
                 <FooterLessBolderFont>
                   <h5>Legal</h5>
                 </FooterLessBolderFont>
-                <FooterBoldedFont>Privacy</FooterBoldedFont>
-                <FooterBoldedFont>Cookies</FooterBoldedFont>
-                <FooterBoldedFont>Terms</FooterBoldedFont>
+                <FooterBoldedFont onClick={() => router.push("/privacy")}>Privacy</FooterBoldedFont>
+                <FooterBoldedFont onClick={() => router.push("/cookies")}>Cookies</FooterBoldedFont>
+                <FooterBoldedFont onClick={() => router.push("/terms")}>Terms</FooterBoldedFont>
               </FooterCoreLayout>
             </div>
           </div>
@@ -222,26 +222,26 @@ const Footer = () => {
                 <FooterLessBolderFont>
                   <h5>Product</h5>
                 </FooterLessBolderFont>
-                <FooterBoldedFont>Features</FooterBoldedFont>
-                <FooterBoldedFont>Use Cases</FooterBoldedFont>
-                <FooterBoldedFont>Pricing</FooterBoldedFont>
-                <FooterBoldedFont>FAQs</FooterBoldedFont>
+                <FooterBoldedFont onClick={() => router.push("/")}>Features</FooterBoldedFont>
+                <FooterBoldedFont onClick={() => router.push("/")}>Use Cases</FooterBoldedFont>
+                <FooterBoldedFont onClick={() => router.push("/pricing")}>Pricing</FooterBoldedFont>
+                <FooterBoldedFont onClick={() => router.push("/faq")}>FAQs</FooterBoldedFont>
               </FooterCoreLayout>
               <FooterCoreLayout style={{ gridColumn: "2", gridRow: 1 }}>
                 <FooterLessBolderFont>
                   <h5>Company</h5>
                 </FooterLessBolderFont>
-                <FooterBoldedFont>About</FooterBoldedFont>
-                <FooterBoldedFont>Contact</FooterBoldedFont>
-                <FooterBoldedFont>Join Us</FooterBoldedFont>
+                <FooterBoldedFont onClick={() => router.push("/about")}>About</FooterBoldedFont>
+                <FooterBoldedFont onClick={() => router.push("/contact")}>Contact</FooterBoldedFont>
+                <FooterBoldedFont onClick={() => router.push("/join")}>Join Us</FooterBoldedFont>
               </FooterCoreLayout>
               <FooterCoreLayout style={{ gridColumn: "1", gridRow: 2 }}>
                 <FooterLessBolderFont>
                   <h5>Legal</h5>
                 </FooterLessBolderFont>
-                <FooterBoldedFont>Privacy</FooterBoldedFont>
-                <FooterBoldedFont>Cookies</FooterBoldedFont>
-                <FooterBoldedFont>Terms</FooterBoldedFont>
+                <FooterBoldedFont onClick={() => router.push("/privacy")}>Privacy</FooterBoldedFont>
+                <FooterBoldedFont onClick={() => router.push("/cookies")}>Cookies</FooterBoldedFont>
+                <FooterBoldedFont onClick={() => router.push("/terms")}>Terms</FooterBoldedFont>
               </FooterCoreLayout>
             </div>
           </div>

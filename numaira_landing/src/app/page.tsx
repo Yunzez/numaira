@@ -398,7 +398,7 @@ export default function Home() {
 
       <SectionContainer style={{ marginTop: "80px", marginBottom: "80px"}}>
         <IntroTitle>Introducing Numaira</IntroTitle>
-        <IntroDescr>Automate data entry for financial documents in 1-click</IntroDescr>
+        <IntroDescr>AI-Powered Automation Solutions for Finance</IntroDescr>
         <IntroButtonContainer>
           {/* <Button text={"Request A Demo"} variant={ButtonVariant.Primary} onClick={() => {console.log("hi")}}></Button>
           <Button text={"Solution"} variant={ButtonVariant.Secondary} onClick={() => {console.log("hi")}}></Button> */}
@@ -411,15 +411,74 @@ export default function Home() {
         <Marquee Index={0} TotalItems={7}/>
       </MemberCompaniesContainer>
 
-      <SectionContainer>
-        <SectionHeader svg={<Pages/>} title={"The Problem"}></SectionHeader>
-        <Descr>Manual data alignment for documents is inefficient and repetitive</Descr>
-        <QuoteContainer>
-          <Quote quote={"The most time-consuming part is finding and picking data from sources."} source={"Equity Researcher"} svg={<CMBILogo/>}></Quote>
-          <Quote quote={"Updating numbers is a frequent demand involving repetitive work."} source={"Investment Banker"} svg={<CMBILogo/>}></Quote>
-          <Quote quote={"Auditing is constantly short staffed with tight deadlines and repetitive work."} source={"ESG Auditor"} svg={<PWCLogo style={{width: "80px"}}/>}></Quote>
-        </QuoteContainer>
-        <QuoteCarousel/>
+      <SectionContainer style={{ marginTop: "60px", marginBottom: "60px" }}>
+        <SectionHeader svg={<Pages/>} title={"Featured News"}></SectionHeader>
+        <NewsGrid>
+          <NewsCard>
+            <NewsCategory>Funding</NewsCategory>
+            <NewsTitle>Numaira Receives $100K Seed Funding from Cyberport</NewsTitle>
+            <NewsDate>December 15, 2024</NewsDate>
+            <NewsExcerpt>Finance automation startup Numaira secures significant seed funding to accelerate product development and market expansion.</NewsExcerpt>
+            <ReadMoreButton onClick={() => router.push("/media")}>Read More</ReadMoreButton>
+          </NewsCard>
+          
+          <NewsCard>
+            <NewsCategory>Product Launch</NewsCategory>
+            <NewsTitle>Numaira Announces March 2025 Product Launch</NewsTitle>
+            <NewsDate>January 8, 2025</NewsDate>
+            <NewsExcerpt>The highly anticipated finance automation platform will be available to early adopters and enterprise clients starting March 2025.</NewsExcerpt>
+            <ReadMoreButton onClick={() => router.push("/media")}>Read More</ReadMoreButton>
+          </NewsCard>
+          
+          <NewsCard>
+            <NewsCategory>Partnerships</NewsCategory>
+            <NewsTitle>Partnership with Leading Financial Institutions Drives Innovation</NewsTitle>
+            <NewsDate>January 20, 2025</NewsDate>
+            <NewsExcerpt>Numaira collaborates with top-tier banks and investment firms to refine AI automation solutions for financial document processing.</NewsExcerpt>
+            <ReadMoreButton onClick={() => router.push("/media")}>Read More</ReadMoreButton>
+          </NewsCard>
+        </NewsGrid>
+      </SectionContainer>
+
+      <SectionContainer style={{ marginTop: "60px" }}>
+        <SectionHeader svg={<Sprout/>} title={"Product Offerings"}></SectionHeader>
+        <ProductGrid>
+          <ProductCard>
+            <ProductStatus>Available Now</ProductStatus>
+            <ProductTitle>SyncSpace</ProductTitle>
+            <ProductFeatures>
+              <li>Real-time collaboration</li>
+              <li>Version control & history</li>
+              <li>Data synchronization</li>
+              <li>Team workspace management</li>
+            </ProductFeatures>
+            <LearnMoreButton onClick={() => router.push("/demo")}>Learn More</LearnMoreButton>
+          </ProductCard>
+          
+          <ProductCard>
+            <ProductStatus>Coming Soon</ProductStatus>
+            <ProductTitle>AssemblyDoc</ProductTitle>
+            <ProductFeatures>
+              <li>AI-powered document generation</li>
+              <li>Multi-source data integration</li>
+              <li>Template customization</li>
+              <li>Automated compliance checking</li>
+            </ProductFeatures>
+            <LearnMoreButton onClick={() => router.push("/demo")}>Learn More</LearnMoreButton>
+          </ProductCard>
+          
+          <ProductCard>
+            <ProductStatus>Enterprise</ProductStatus>
+            <ProductTitle>Customized Solutions</ProductTitle>
+            <ProductFeatures>
+              <li>Custom workflow automation</li>
+              <li>Specialized integrations</li>
+              <li>Dedicated support team</li>
+              <li>Enterprise-grade security</li>
+            </ProductFeatures>
+            <LearnMoreButton onClick={() => router.push("/contact")}>Get Started</LearnMoreButton>
+          </ProductCard>
+        </ProductGrid>
       </SectionContainer>
 
       {/* <SectionContainer>
