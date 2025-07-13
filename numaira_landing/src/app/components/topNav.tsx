@@ -58,7 +58,7 @@ const TopNav: React.FC = () => {
     <Navbar>
       {/* Desktop Navigation */}
       <section className="hidden md:block">
-        <UpdateBanner message="🚀 Numaira Version 1.0 Launches In March 2025" />
+        <UpdateBanner message="🚀 Numaira SyncSpace Launched In March 2025" />
         <div
           className="flex justify-between gap-5 px-10 items-center"
           style={{ width: "100%" }}
@@ -82,7 +82,7 @@ const TopNav: React.FC = () => {
                   cursor: "pointer",
                 }}
               >
-                Product
+                Home
               </div>
             </div>
             <div>
@@ -94,17 +94,6 @@ const TopNav: React.FC = () => {
                 }}
               >
                 About
-              </div>
-            </div>
-            <div>
-              <div
-                onClick={() => router.push("/pricing")}
-                className={pathname === "/pricing" ? "font-bold" : ""}
-                style={{
-                  cursor: "pointer",
-                }}
-              >
-                Pricing
               </div>
             </div>
             <div>
@@ -176,7 +165,7 @@ const TopNav: React.FC = () => {
               className={pathname === "/" ? "font-bold text-lg" : "text-lg"}
               style={{ cursor: "pointer" }}
             >
-              Product
+              Home
             </div>
             <div
               onClick={() => {
@@ -192,18 +181,6 @@ const TopNav: React.FC = () => {
             </div>
             <div
               onClick={() => {
-                router.push("/pricing");
-                setMenuOpen(false);
-              }}
-              className={
-                pathname === "/pricing" ? "font-bold text-lg" : "text-lg"
-              }
-              style={{ cursor: "pointer" }}
-            >
-              Pricing
-            </div>
-            <div
-              onClick={() => {
                 router.push("/contact");
                 setMenuOpen(false);
               }}
@@ -212,7 +189,7 @@ const TopNav: React.FC = () => {
               }
               style={{ cursor: "pointer" }}
             >
-              Join Us
+              Contact
             </div>
           </div>
         </MobileMenu>

@@ -207,6 +207,189 @@ const EmailText = styled.div`
   }
 `;
 
+const NewsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const NewsCard = styled.div`
+  background-color: ${Colors.neutral100};
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 300px;
+  height: 100%;
+`;
+
+const NewsCategory = styled.span`
+  color: ${Colors.brand500};
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+`;
+
+const NewsTitle = styled.h3`
+  color: ${Colors.brand1000};
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+`;
+
+const NewsDate = styled.span`
+  color: ${Colors.neutral700};
+  font-size: 14px;
+`;
+
+const NewsExcerpt = styled.p`
+  color: ${Colors.neutral1000};
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  flex-grow: 1;
+`;
+
+const ReadMoreButton = styled.button`
+  background-color: ${Colors.brand500};
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: ${Colors.brand800};
+  }
+`;
+
+const ProductGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const ProductCard = styled.div`
+  background-color: ${Colors.neutral};
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 280px;
+  height: 100%;
+  border: 2px solid ${Colors.neutral200};
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  }
+`;
+
+const ProductStatus = styled.div`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: fit-content;
+  
+  ${props => props.children === 'Available Now' && `
+    background: ${Colors.brand};
+    color: ${Colors.brand500};
+    border: 1px solid ${Colors.brand200};
+  `}
+  
+  ${props => props.children === 'Coming Soon' && `
+    background: ${Colors.warning_background};
+    color: ${Colors.warning};
+    border: 1px solid ${Colors.warning};
+  `}
+  
+  ${props => props.children === 'Enterprise' && `
+    background: ${Colors.neutral100};
+    color: ${Colors.neutral1000};
+    border: 1px solid ${Colors.neutral300};
+  `}
+`;
+
+const ProductTitle = styled.h3`
+  color: ${Colors.brand1000};
+  font-size: 22px;
+  font-weight: 700;
+  margin: 4px 0;
+  line-height: 1.3;
+`;
+
+const ProductFeatures = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 8px 0;
+  color: ${Colors.neutral1000};
+  font-size: 14px;
+  line-height: 1.5;
+  flex-grow: 1;
+  
+  li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 6px;
+    
+    &:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: ${Colors.brand500};
+      font-weight: 700;
+      font-size: 14px;
+    }
+  }
+`;
+
+const LearnMoreButton = styled.button`
+  background: linear-gradient(135deg, ${Colors.brand500} 0%, ${Colors.brand800} 100%);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  margin-top: auto;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+`;
+
 export default function Home() {
   const router = useRouter();
   const pathname = usePathname();
@@ -215,16 +398,11 @@ export default function Home() {
 
       <SectionContainer style={{ marginTop: "80px", marginBottom: "80px"}}>
         <IntroTitle>Introducing Numaira</IntroTitle>
-        <IntroDescr>Automate data-driven financial documents in 1-click</IntroDescr>
+        <IntroDescr>Automate data entry for financial documents in 1-click</IntroDescr>
         <IntroButtonContainer>
-          <p>Launching in March 2025</p>
           {/* <Button text={"Request A Demo"} variant={ButtonVariant.Primary} onClick={() => {console.log("hi")}}></Button>
           <Button text={"Solution"} variant={ButtonVariant.Secondary} onClick={() => {console.log("hi")}}></Button> */}
         </IntroButtonContainer>
-        {/* <SectionImg as={SyncSpace}></SectionImg> */}
-        <ImgContainer>
-          <Image src={SyncSpacePng} alt="Landing Image" />
-        </ImgContainer>
         
       </SectionContainer>
       
@@ -234,11 +412,9 @@ export default function Home() {
       </MemberCompaniesContainer>
 
       <SectionContainer>
-        <SectionHeader svg={<Pages/>} title={"Data Handling Made Easy"}></SectionHeader>
-        <Descr>Automatic data search & alignment that eliminates the repetetive, the tedious, and the mundane.</Descr>
+        <SectionHeader svg={<Pages/>} title={"The Problem"}></SectionHeader>
+        <Descr>Manual data alignment for documents is inefficient and repetitive</Descr>
         <QuoteContainer>
-
-
           <Quote quote={"The most time-consuming part is finding and picking data from sources."} source={"Equity Researcher"} svg={<CMBILogo/>}></Quote>
           <Quote quote={"Updating numbers is a frequent demand involving repetitive work."} source={"Investment Banker"} svg={<CMBILogo/>}></Quote>
           <Quote quote={"Auditing is constantly short staffed with tight deadlines and repetitive work."} source={"ESG Auditor"} svg={<PWCLogo style={{width: "80px"}}/>}></Quote>
@@ -259,13 +435,13 @@ export default function Home() {
         <Descr>Numaira facilitates seamless data entry no matter your industry</Descr>
       </SectionContainer> */}
 
-      <SectionContainer>
+      {/* <SectionContainer>
         <SectionHeader svg={<Sprout/>} title={"Funding"}></SectionHeader>
         <Descr style={{ marginBottom: "60px"}}><BlackText>Numaira received</BlackText> $100,000 HKD ($13K USD) in seed funding <BlackText>from <Underline>Cyberport</Underline>, a cutting-edge technology incubator.</BlackText></Descr>
         <CyberportContainer>
           <CyberportLogo/>
         </CyberportContainer>
-      </SectionContainer>
+      </SectionContainer> */}
 
       {/* <SectionContainer>
         <SectionHeader svg={<Help/>} title={"FAQs"}></SectionHeader>
@@ -274,14 +450,14 @@ export default function Home() {
         <EmailText><BlackText>Don’t see your question(s) above? Get answers by sending a message to </BlackText><Underline><a href="mailto:numairaai@proton.me">numairaai@proton.me</a></Underline></EmailText>
       </SectionContainer> */}
 
-      <SectionContainer>
+      {/* <SectionContainer>
         <SectionHeader svg={<Book/>} title={"Try Numaira"}></SectionHeader>
         <TryDescr>Numaira is ready for testing. Book a demo today to start automating the future!</TryDescr>
         <ButtonContainer>
           <Button text={"Request A Demo"} variant={ButtonVariant.Primary} onClick={() => router.push("/demo")}
                 className={pathname === "/demo" ? "active" : ""}></Button>
         </ButtonContainer>
-      </SectionContainer>
+      </SectionContainer> */}
     </div>
   );
 }
