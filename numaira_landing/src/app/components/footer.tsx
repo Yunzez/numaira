@@ -3,10 +3,8 @@ import React from "react";
 import { Colors } from "../colors";
 import { Formats } from "../formats";
 import styled from "styled-components";
-import LogoSVG from "../asset/logo.svg";
 import LinkedInSVG from "../asset/linkedin.svg";
 import EmailSVG from "../asset/email.svg";
-import { StyledButtonWhite } from "./styled/StyledButtonWhite";
 import { useRouter, usePathname } from "next/navigation";
 
 const FooterBoldedFont = styled.div`
@@ -44,77 +42,7 @@ const Footer = () => {
       {/* Desktop Navigation */}
       <section className="hidden sm:block">
         <div className="flex flex-col gap-16">
-          <div className="flex justify-between items-center gap-20 h-[320px] px-10">
-            <div
-              className="flex flex-col items-start"
-              style={{ maxWidth: "800px" }}
-            >
-              <div
-                className="flex flex-col justify-start items-start"
-                style={{ gap: "20px" }}
-              >
-                <div className="flex flex-col gap-1 justify-start">
-                  <div className="flex justify-start items-center gap-2">
-                    <LogoSVG width={40} height={40} fill={Colors.brand500} />
-                    <div
-                      className="font-bold"
-                      style={{
-                        color: Colors.brand500,
-                        fontSize: Formats.textXL,
-                      }}
-                    >
-                      Numaira
-                    </div>
-                  </div>
-                  <div
-                    className="text-left"
-                    style={{
-                      color: Colors.neutral700,
-                      fontWeight: 500,
-                      fontSize: Formats.textXS,
-                    }}
-                  >
-                    Automating finance one file at a time
-                  </div>
-                </div>
-                <div className="items-start">
-                  <StyledButtonWhite
-                    onClick={() => router.push("/dashboard")}
-                    className={pathname === "/contact" ? "active" : ""}
-                  >
-                    Request A Demo
-                  </StyledButtonWhite>
-                </div>
-              </div>
-            </div>
-            <div className="flex justify-start" style={{ gap: "72px" }}>
-              <FooterCoreLayout>
-                <FooterLessBolderFont>
-                  <h5>Product</h5>
-                </FooterLessBolderFont>
-                <FooterBoldedFont onClick={() => router.push("/")}>Features</FooterBoldedFont>
-                <FooterBoldedFont onClick={() => router.push("/")}>Use Cases</FooterBoldedFont>
-                <FooterBoldedFont onClick={() => router.push("/pricing")}>Pricing</FooterBoldedFont>
-                <FooterBoldedFont onClick={() => router.push("/faq")}>FAQs</FooterBoldedFont>
-              </FooterCoreLayout>
-              <FooterCoreLayout>
-                <FooterLessBolderFont>
-                  <h5>Company</h5>
-                </FooterLessBolderFont>
-                <FooterBoldedFont onClick={() => router.push("/about")}>About</FooterBoldedFont>
-                <FooterBoldedFont onClick={() => router.push("/contact")}>Contact</FooterBoldedFont>
-                <FooterBoldedFont onClick={() => router.push("/join")}>Join Us</FooterBoldedFont>
-              </FooterCoreLayout>
-              <FooterCoreLayout>
-                <FooterLessBolderFont>
-                  <h5>Legal</h5>
-                </FooterLessBolderFont>
-                <FooterBoldedFont onClick={() => router.push("/privacy")}>Privacy</FooterBoldedFont>
-                <FooterBoldedFont onClick={() => router.push("/cookies")}>Cookies</FooterBoldedFont>
-                <FooterBoldedFont onClick={() => router.push("/terms")}>Terms</FooterBoldedFont>
-              </FooterCoreLayout>
-            </div>
-          </div>
+
           <div
             className="flex justify-between items-center h-[80px] px-20"
             style={{
@@ -124,7 +52,7 @@ const Footer = () => {
             }}
           >
             <a style={{ fontSize: Formats.textLG, fontWeight: 400 }}>
-              © 2024 Numaira. All rights are reserved
+              © 2025 Numaira. All rights are reserved
             </a>
             <div
               className="flex justify-center items-center"
@@ -165,86 +93,7 @@ const Footer = () => {
       {/* Mobile Navigation */}
       <section className="block sm:hidden">
         <div className="flex flex-col gap-16">
-          <div className="flex flex-col justify-center items-start gap-20 px-6">
-            <div
-              className="flex flex-col items-start"
-              style={{ width: "auto" }}
-            >
-              <div
-                className="flex flex-col justify-start items-start"
-                style={{ gap: "20px" }}
-              >
-                <div className="flex flex-col gap-1 justify-start">
-                  <div className="flex justify-start items-center gap-2">
-                    <LogoSVG width={40} height={40} fill={Colors.brand500} />
-                    <div
-                      className="font-bold"
-                      style={{
-                        color: Colors.brand500,
-                        fontSize: Formats.textXL,
-                      }}
-                    >
-                      Numaira
-                    </div>
-                  </div>
-                  <div
-                    className="text-left"
-                    style={{
-                      color: Colors.neutral700,
-                      fontWeight: 500,
-                      fontSize: Formats.textXS,
-                    }}
-                  >
-                    Automating finance one file at a time
-                  </div>
-                </div>
-                <div className="items-start">
-                  <StyledButtonWhite
-                    onClick={() => router.push("/dashboard")}
-                    className={pathname === "/contact" ? "active" : ""}
-                  >
-                    Request A Demo
-                  </StyledButtonWhite>
-                </div>
-              </div>
-            </div>
-            <div
-              className="grid"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(2, 1fr)",
-                gridTemplateRows: "repeat(2, auto)",
-                gap: "72px",
-                // width: "100%",
-              }}
-            >
-              <FooterCoreLayout style={{ gridColumn: "1", gridRow: 1 }}>
-                <FooterLessBolderFont>
-                  <h5>Product</h5>
-                </FooterLessBolderFont>
-                <FooterBoldedFont onClick={() => router.push("/")}>Features</FooterBoldedFont>
-                <FooterBoldedFont onClick={() => router.push("/")}>Use Cases</FooterBoldedFont>
-                <FooterBoldedFont onClick={() => router.push("/pricing")}>Pricing</FooterBoldedFont>
-                <FooterBoldedFont onClick={() => router.push("/faq")}>FAQs</FooterBoldedFont>
-              </FooterCoreLayout>
-              <FooterCoreLayout style={{ gridColumn: "2", gridRow: 1 }}>
-                <FooterLessBolderFont>
-                  <h5>Company</h5>
-                </FooterLessBolderFont>
-                <FooterBoldedFont onClick={() => router.push("/about")}>About</FooterBoldedFont>
-                <FooterBoldedFont onClick={() => router.push("/contact")}>Contact</FooterBoldedFont>
-                <FooterBoldedFont onClick={() => router.push("/join")}>Join Us</FooterBoldedFont>
-              </FooterCoreLayout>
-              <FooterCoreLayout style={{ gridColumn: "1", gridRow: 2 }}>
-                <FooterLessBolderFont>
-                  <h5>Legal</h5>
-                </FooterLessBolderFont>
-                <FooterBoldedFont onClick={() => router.push("/privacy")}>Privacy</FooterBoldedFont>
-                <FooterBoldedFont onClick={() => router.push("/cookies")}>Cookies</FooterBoldedFont>
-                <FooterBoldedFont onClick={() => router.push("/terms")}>Terms</FooterBoldedFont>
-              </FooterCoreLayout>
-            </div>
-          </div>
+
           <div
             className="flex flex-col items-start px-6"
             style={{
@@ -291,7 +140,7 @@ const Footer = () => {
               className="mb-3"
               style={{ fontSize: Formats.textLG, fontWeight: 400 }}
             >
-              © 2024 Numaira. All rights are reserved
+              © 2025 Numaira. All rights are reserved
             </a>
           </div>
         </div>

@@ -57,17 +57,13 @@ const Header = styled.div`
 `;
 
 const SectionContainer = styled.div`
-  margin: 100px 200px;
-  width: calc(100% - 400px);
+  margin: 40px 60px;
+  width: calc(100% - 120px);
+  text-align: left;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     margin: 40px 24px;
     width: calc(100% - 48px);
-  }
-
-  @media (max-width: 850px) {
-    margin: 40px 24px;
-    width: calc(100% - 88px);
   }
 `;
 
@@ -92,24 +88,26 @@ const MemberCompaniesText = styled.p`
   }
 `;
 
-const IntroTitle = styled.p`
-  color: ${Colors.brand1000};
-  font-size: 24px;
-  font-weight: 600;
-
-  @media (max-width: 450px) {
-    font-size: 18px;
-  }
-`;
-
-const IntroDescr = styled.div`
+const IntroTitle = styled.h1`
   color: ${Colors.brand500};
   font-size: 48px;
   font-weight: 600;
-  margin: 12px 0 24px 0;
+  margin: 0 0 16px 0;
 
   @media (max-width: 450px) {
     font-size: 36px;
+  }
+`;
+
+const IntroDescr = styled.p`
+  color: ${Colors.neutral1000};
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0 0 32px 0;
+  line-height: 1.5;
+
+  @media (max-width: 450px) {
+    font-size: 18px;
   }
 `;
 
@@ -390,28 +388,143 @@ const LearnMoreButton = styled.button`
   }
 `;
 
+const EmailFormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  margin: 20px 60px;
+  width: calc(100% - 120px);
+
+  @media (max-width: 768px) {
+    margin: 20px 24px;
+    width: calc(100% - 48px);
+  }
+`;
+
+const EmailFormDescription = styled.p`
+  color: ${Colors.brand500};
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  text-align: left;
+
+  @media (max-width: 450px) {
+    font-size: 16px;
+  }
+`;
+
+const EmailFormWrapper = styled.div`
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  align-items: flex-start;
+
+  @media (max-width: 450px) {
+    flex-direction: column;
+    gap: 8px;
+  }
+`;
+
+const EmailInput = styled.input`
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid ${Colors.neutral200};
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: left;
+
+  &:focus {
+    border-color: ${Colors.brand500};
+  }
+
+  &::placeholder {
+    color: ${Colors.neutral700};
+  }
+`;
+
+const SubscribeButton = styled.button`
+  background: ${Colors.brand500};
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+
+  &:hover {
+    background: ${Colors.brand800};
+  }
+
+  @media (max-width: 450px) {
+    width: 100%;
+  }
+`;
+
+const PrivacyText = styled.p`
+  color: ${Colors.neutral700};
+  font-size: 14px;
+  font-weight: 400;
+  margin: 2px 0 0 0;
+  text-align: left;
+
+  @media (max-width: 450px) {
+    font-size: 12px;
+  }
+`;
+
 export default function Home() {
   const router = useRouter();
   const pathname = usePathname();
   return (
-    <div className="flex flex-col items-center justify-start text-center w-100">
+    <div className="min-h-screen flex flex-col md:flex-row">
+      {/* Left side - Content (2/3) */}
+      <div className="w-full md:w-2/3 flex flex-col justify-center items-start">
+        <SectionContainer>
+          <IntroTitle>Numaira AI</IntroTitle>
+          <IntroDescr>Create any document with AI</IntroDescr>
+          <IntroButtonContainer>
+            {/* <Button text={"Request A Demo"} variant={ButtonVariant.Primary} onClick={() => {console.log("hi")}}></Button>
+            <Button text={"Solution"} variant={ButtonVariant.Secondary} onClick={() => {console.log("hi")}}></Button> */}
+          </IntroButtonContainer>
+          
+        </SectionContainer>
 
-      <SectionContainer style={{ marginTop: "80px", marginBottom: "80px"}}>
-        <IntroTitle>Introducing Numaira</IntroTitle>
-        <IntroDescr>AI-Powered Automation Solutions for Finance</IntroDescr>
-        <IntroButtonContainer>
-          {/* <Button text={"Request A Demo"} variant={ButtonVariant.Primary} onClick={() => {console.log("hi")}}></Button>
-          <Button text={"Solution"} variant={ButtonVariant.Secondary} onClick={() => {console.log("hi")}}></Button> */}
-        </IntroButtonContainer>
-        
-      </SectionContainer>
+        <EmailFormContainer>
+          <EmailFormDescription>Stay in the loop</EmailFormDescription>
+          <EmailFormWrapper>
+            <EmailInput type="email" placeholder="Enter your email" />
+            <SubscribeButton>Subscribe</SubscribeButton>
+          </EmailFormWrapper>
+          <PrivacyText>Your email will only be used for product updates.</PrivacyText>
+        </EmailFormContainer>
+      </div>
+
+      {/* Right side - Image (1/3) */}
+      <div className="w-full md:w-1/3 h-64 md:h-auto relative">
+        <Image 
+          src={landingImage} 
+          alt="Numaira Landing" 
+          fill
+          style={{ objectFit: 'cover' }}
+          priority
+        />
+      </div>
       
-      <MemberCompaniesContainer>
+      {/* Hidden sections */}
+      {/* <MemberCompaniesContainer>
         <MemberCompaniesText>Developed by top performers, for top performers</MemberCompaniesText>
         <Marquee Index={0} TotalItems={7}/>
-      </MemberCompaniesContainer>
+      </MemberCompaniesContainer> */}
 
-      <SectionContainer style={{ marginTop: "60px", marginBottom: "60px" }}>
+      {/* <SectionContainer style={{ marginTop: "60px", marginBottom: "60px" }}>
         <SectionHeader svg={<Pages/>} title={"Featured News"}></SectionHeader>
         <NewsGrid>
           <NewsCard>
@@ -438,9 +551,9 @@ export default function Home() {
             <ReadMoreButton onClick={() => router.push("/media")}>Read More</ReadMoreButton>
           </NewsCard>
         </NewsGrid>
-      </SectionContainer>
+      </SectionContainer> */}
 
-      <SectionContainer style={{ marginTop: "60px" }}>
+      {/* <SectionContainer style={{ marginTop: "60px" }}>
         <SectionHeader svg={<Sprout/>} title={"Product Offerings"}></SectionHeader>
         <ProductGrid>
           <ProductCard>
@@ -479,7 +592,7 @@ export default function Home() {
             <LearnMoreButton onClick={() => router.push("/contact")}>Get Started</LearnMoreButton>
           </ProductCard>
         </ProductGrid>
-      </SectionContainer>
+      </SectionContainer> */}
 
       {/* <SectionContainer>
         <SectionHeader svg={<SparkleDoc/>} title={"Solution Workflow"}></SectionHeader>
@@ -506,7 +619,7 @@ export default function Home() {
         <SectionHeader svg={<Help/>} title={"FAQs"}></SectionHeader>
         <Descr>Frequently Asked Questions</Descr>
         <Accordion/>
-        <EmailText><BlackText>Don’t see your question(s) above? Get answers by sending a message to </BlackText><Underline><a href="mailto:numairaai@proton.me">numairaai@proton.me</a></Underline></EmailText>
+        <EmailText><BlackText>Don't see your question(s) above? Get answers by sending a message to </BlackText><Underline><a href="mailto:numairaai@proton.me">numairaai@proton.me</a></Underline></EmailText>
       </SectionContainer> */}
 
       {/* <SectionContainer>
