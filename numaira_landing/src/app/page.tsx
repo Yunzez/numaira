@@ -3,6 +3,7 @@
 import Image from "next/image";
 import styled, { keyframes } from "styled-components";
 import { useRouter, usePathname } from "next/navigation";
+import { useState } from "react";
 import landingImage from "./asset/landing.png";
 import Colors from "./colors";
 import formats from "./formats";
@@ -14,6 +15,7 @@ import Accordion from "./components/Accordion";
 import { ButtonVariant } from "./components/ButtonComponent";
 import Marquee from "./components/MarqueeComponent";
 import QuoteCarousel from "./components/QuoteCarousel";
+import { sendEmailSubscription } from "./context/addToSheet";
 
 // svg imports
 import LogoSVG from "./asset/logo.svg";
@@ -459,8 +461,14 @@ const SubscribeButton = styled.button`
   transition: background-color 0.3s ease;
   white-space: nowrap;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background: ${Colors.brand800};
+  }
+
+  &:disabled {
+    background: ${Colors.neutral300};
+    cursor: not-allowed;
+    opacity: 0.7;
   }
 
   @media (max-width: 450px) {
@@ -480,9 +488,110 @@ const PrivacyText = styled.p`
   }
 `;
 
+const ErrorText = styled.p`
+  color: ${Colors.warning};
+  font-size: 14px;
+  font-weight: 400;
+  margin: 4px 0 0 0;
+  text-align: left;
+
+  @media (max-width: 450px) {
+    font-size: 12px;
+  }
+`;
+
+const SuccessText = styled.p`
+  color: ${Colors.brand500};
+  font-size: 16px;
+  font-weight: 600;
+  margin: 8px 0 0 0;
+  text-align: left;
+
+  @media (max-width: 450px) {
+    font-size: 14px;
+  }
+`;
+
+const CyberportBadgeContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  margin: 40px 60px 0 60px;
+  width: calc(100% - 120px);
+
+  @media (max-width: 768px) {
+    margin: 30px 24px 0 24px;
+    width: calc(100% - 48px);
+    gap: 0px;
+  }
+`;
+
+const CyberportLogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  svg {
+    transform: scale(0.8);
+    transform-origin: center;
+  }
+`;
+
+const CyberportBadgeText = styled.p`
+  color: ${Colors.neutral700};
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  text-align: left;
+
+  @media (max-width: 450px) {
+    font-size: 14px;
+  }
+`;
+
 export default function Home() {
   const router = useRouter();
   const pathname = usePathname();
+  const [email, setEmail] = useState("");
+  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const isValidEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleSubscribe = async () => {
+    setError("");
+    
+    if (!email) {
+      setError("Please enter an email address.");
+      return;
+    }
+    
+    if (!isValidEmail(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      const result = await sendEmailSubscription(email);
+      if (result.data === "Email subscription added successfully") {
+        setIsSubscribed(true);
+        setEmail(""); // Clear the input
+      } else {
+        setError("Failed to subscribe. Please try again.");
+      }
+    } catch (error) {
+      setError("Failed to subscribe. Please try again.");
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
       {/* Left side - Content (2/3) */}
@@ -500,11 +609,28 @@ export default function Home() {
         <EmailFormContainer>
           <EmailFormDescription>Stay in the loop</EmailFormDescription>
           <EmailFormWrapper>
-            <EmailInput type="email" placeholder="Enter your email" />
-            <SubscribeButton>Subscribe</SubscribeButton>
+            <EmailInput
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              disabled={isSubscribed}
+            />
+            <SubscribeButton onClick={handleSubscribe} disabled={isSubscribed || isLoading}>
+              {isLoading ? "Subscribing..." : isSubscribed ? "Subscribed!" : "Subscribe"}
+            </SubscribeButton>
           </EmailFormWrapper>
-          <PrivacyText>Your email will only be used for product updates.</PrivacyText>
+          {error && <ErrorText>{error}</ErrorText>}
+          {isSubscribed && <SuccessText>Thank you for subscribing! You'll receive product updates.</SuccessText>}
+          {!isSubscribed && <PrivacyText>Your email will only be used for product updates.</PrivacyText>}
         </EmailFormContainer>
+
+                  <CyberportBadgeContainer>
+            <CyberportBadgeText>Backed by</CyberportBadgeText>
+            <CyberportLogoContainer>
+              <CyberportLogo />
+            </CyberportLogoContainer>
+          </CyberportBadgeContainer>
       </div>
 
       {/* Right side - Image (1/3) */}
