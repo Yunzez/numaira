@@ -621,7 +621,7 @@ export default function Home() {
             </SubscribeButton>
           </EmailFormWrapper>
           {error && <ErrorText>{error}</ErrorText>}
-          {isSubscribed && <SuccessText>Thank you for subscribing! You'll receive product updates.</SuccessText>}
+          {isSubscribed && <SuccessText>Thank you for subscribing! You&apos;ll receive product updates.</SuccessText>}
           {!isSubscribed && <PrivacyText>Your email will only be used for product updates.</PrivacyText>}
         </EmailFormContainer>
 
