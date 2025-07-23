@@ -1,5 +1,5 @@
 import React from "react";
-import ComingSoon from "../../components/comming-soon";
+import ComingSoon from "@/app/components/comming-soon";
 
 const page = () => {
   return (

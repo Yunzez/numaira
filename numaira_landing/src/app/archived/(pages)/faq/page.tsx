@@ -182,7 +182,7 @@ const FAQPage = () => {
     <FAQContainer>
       <PageHeader>
         <PageTitle>Frequently Asked Questions</PageTitle>
-        <PageSubtitle>Find answers to common questions about Numaira's finance automation platform</PageSubtitle>
+        <PageSubtitle>Find answers to common questions about Numaira&apos;s finance automation platform</PageSubtitle>
       </PageHeader>
 
       {faqSections.map((section) => (
@@ -210,7 +210,7 @@ const FAQPage = () => {
       ))}
 
       <ContactSection>
-        <ContactTitle>Don't see your question above?</ContactTitle>
+        <ContactTitle>Don&apos;t see your question above?</ContactTitle>
         <ContactText>
           Get answers by contacting our team at{" "}
           <ContactLink href="mailto:support@numaira.com">support@numaira.com</ContactLink>

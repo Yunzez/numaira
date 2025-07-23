@@ -2,13 +2,13 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
-import Colors from "../../colors";
-import formats from "../../formats";
-import CopySVG from "../../asset/copy.svg";
-import TickSVG from "../../asset/tick.svg";
-import DropDownUp from "../../asset/dropDownUp.svg";
-import DropDownDown from "../../asset/dropDownDown.svg";
-import { StyledButtonWhite } from "../../components/styled/StyledButtonWhite";
+import Colors from "@/app/colors";
+import formats from "@/app/formats";
+import CopySVG from "@/app/asset/copy.svg";
+import TickSVG from "@/app/asset/tick.svg";
+import DropDownUp from "@/app/asset/dropDownUp.svg";
+import DropDownDown from "@/app/asset/dropDownDown.svg";
+import { StyledButtonWhite } from "@/app/components/styled/StyledButtonWhite";
 
 const ContactCard = styled.div`
   max-width: 800px;
@@ -81,12 +81,16 @@ const Contact = () => {
       return;
     }
     console.log('change selected timezone')
-    for (const key in timeZone) {
-      if (key == selectedTimeZone) {
-        timeZone[key].selected = true;
-        timeZone[key].hovered = true;
+    setTimeZone(prev => {
+      const newState = { ...prev };
+      for (const key in newState) {
+        if (key === selectedTimeZone) {
+          newState[key].selected = true;
+          newState[key].hovered = true;
+        }
       }
-    }
+      return newState;
+    });
   }, [selectedTimeZone]);
 
   return (
